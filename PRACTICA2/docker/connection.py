@@ -16,3 +16,4 @@ def establir_connexio():
         
     except psycopg2.Error as e:
         print("Error al connectar a la base de dades:", e)
+
