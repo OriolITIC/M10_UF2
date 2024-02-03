@@ -1,27 +1,22 @@
 import psycopg2
 
-# Per saber quina és la database, el user i el password mirar el .yml
-conn = psycopg2.connect(
-    database="",
-    user="",
-    password="",
-    host="",
-    host="localhost",
-    port="5432"
-)
+# Establece la connexió amb la base de dades
+def establir_connexio():
+    try:
+        mydb = psycopg2.connect(
+            database="postgres",
+            user="user_postgres",
+            password="pass_postgres",
+            host="localhost",
+            port="5432"
+        )
+        
+        print('Connexió establerta correctament')
+        return mydb, mydb.cursor()
+        
+    except psycopg2.Error as e:
+        print("Error al connectar a la base de dades:", e)
 
-# Per fer la connexió s'utilitza el mètode cursor()
-connection = conn.cursor()
+def tancar_connexio(mydb):
+    mydb.close()
 
-sql = '''CREATE TABLE USERS(
-            user_id SERIAL PRIMARY KEY,
-            user_name VARCHAR(255) NOT NULL,
-            user_surname VARCHAR(255) NOT NULL,
-            user_age BIGINT NOT NULL,
-            user_email VARCHAR(255) NOT NULL
-            )'''
-
-print(sql)
-
-connection.execute(sql)
-print(connection)
