@@ -1,14 +1,24 @@
 import psycopg2
 
-def insert_user(cursor):
+########################  CREATE  #############################
+
+def insert_user(mydb,cursor):
     try:
+        # Query a executar: Insertar un nou usuari amb les dades especificades
         sql_query = ''' INSERT INTO public.USERS(user_id, user_name, user_surname, user_age, user_email)
-                        VALUES ('1', 'Oriol', 'Martinez', '32', 'oriol.martinez@gmail.com') '''
+                        VALUES ('3', 'Oriol', 'Martinez', '32', 'oriolmmm.martinez@gmail.com') '''
+        
+        # Executar la consulta SQL
         cursor.execute(sql_query)  
-        print("Usuari insertat correctament.")
-        cursor.connection.commit()  
+        
+        # Realitzar commit per a confirmar els canvis a la base de dades
+        mydb.commit()  
+
+        print("Usuari inserit correctament.")
     except (Exception, psycopg2.Error) as error:
-        print("Error en insertar l'usuari:", error)
+        print("Error a l'inserir l'usuari:", error)
+        
+###############################################################
 
 
 

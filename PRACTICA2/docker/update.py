@@ -1,11 +1,23 @@
 import psycopg2
 
-def update_user(cursor):
+##########################  UPDATE ############################
+
+def update_user(mydb,cursor):
     try:
-        sql_update = ''' UPDATE public.USERS SET user_email='oriol@outlook.com' WHERE user_id=1'''
+        # Query a executar: Actualitzar el correu electrònic del usuari amb user_id = 1
+        sql_update = ''' UPDATE public.USERS SET user_email='ori@outlook.com' WHERE user_id=3 '''
+        
+        # Executar la consulta SQL
         cursor.execute(sql_update)
-        cursor.connection.commit()
+        
+        # Realitzar commit per a confirmar els canvis a la base de dades
+        mydb.commit()
+        
+        # Obtindre el nombre de files modificades
         result = cursor.rowcount
+
         print("id modificada: ", result, "Actualització efectuada sense errors ")
     except (Exception, psycopg2.Error) as error:
         print("Error al actualizar el usuario:", error)
+        
+###############################################################

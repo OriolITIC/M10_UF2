@@ -1,11 +1,20 @@
 import psycopg2
 
-def insert_user(cursor):
+########################  DELETE  ##############################
+
+def delete_user(mydb,cursor):
     try:
-        sql_query = ''' INSERT INTO public.USERS(user_id, user_name, user_surname, user_age, user_email)
-                        VALUES ('1', 'Oriol', 'Martinez', '32', 'oriol.martinez@gmail.com') '''
-        cursor.execute(sql_query)  
-        print("Usuari insertat correctament.")
-        cursor.connection.commit()  
+        # Query a executar: Eliminar el usuari amb user_id = 1
+        sql_delete = '''DELETE FROM public.USERS WHERE user_id = 3'''
+        
+        # Executar la consulta SQL
+        cursor.execute(sql_delete)
+        
+        # Realitzar commit per a confirmar els canvis a la base de dades
+        mydb.commit()
+        
+        print("Usuari eliminat correctament.")
     except (Exception, psycopg2.Error) as error:
-        print("Error en insertar l'usuari:", error)
+        print("Error en eliminar l'usuari:", error)
+
+###############################################################
