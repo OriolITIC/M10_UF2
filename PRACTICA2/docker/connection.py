@@ -1,12 +1,18 @@
 import psycopg2
 
-# Per saber quina és la database, el user i el password mirar el .yml
+# Establece la connexió amb la base de dades
 def establir_connexio():
-    mydb = psycopg2.connect(
-    database="postgres",
-    user="user_postgres",
-    password="pass_postgres",
-    host="localhost",
-    port="5432")
-
-    return mydb.cursor()
+    try:
+        mydb = psycopg2.connect(
+            database="postgres",
+            user="user_postgres",
+            password="pass_postgres",
+            host="localhost",
+            port="5432"
+        )
+        
+        print('Connexió establerta correctament')
+        return mydb, mydb.cursor()
+        
+    except psycopg2.Error as e:
+        print("Error al connectar a la base de dades:", e)
