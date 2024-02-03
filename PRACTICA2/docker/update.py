@@ -5,7 +5,7 @@ import psycopg2
 def update_user(mydb,cursor):
     try:
         # Query a executar: Actualitzar el correu electrònic del usuari amb user_id = 1
-        sql_update = ''' UPDATE public.USERS SET user_email='ori@outlook.com' WHERE user_id=3 '''
+        sql_update = ''' UPDATE public.USERS SET user_email='updateoriol@outlook.com' WHERE user_id=1 '''
         
         # Executar la consulta SQL
         cursor.execute(sql_update)

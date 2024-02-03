@@ -6,7 +6,7 @@ def insert_user(mydb,cursor):
     try:
         # Query a executar: Insertar un nou usuari amb les dades especificades
         sql_query = ''' INSERT INTO public.USERS(user_id, user_name, user_surname, user_age, user_email)
-                        VALUES ('3', 'Oriol', 'Martinez', '32', 'oriolmmm.martinez@gmail.com') '''
+                        VALUES ('1', 'Oriol', 'Martinez', '32', 'oriolmmm.martinez@gmail.com') '''
         
         # Executar la consulta SQL
         cursor.execute(sql_query)  

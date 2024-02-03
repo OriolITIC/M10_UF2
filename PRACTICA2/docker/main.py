@@ -48,6 +48,6 @@ if __name__ == "__main__":
     finally:
         # Tanca la connexió a amb la base de dades
         if mydb:
-            mydb.close()
+            connection.tancar_connexio(mydb)
             print('Connexió tancada correctament') 
 

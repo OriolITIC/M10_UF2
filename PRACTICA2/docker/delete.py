@@ -5,7 +5,7 @@ import psycopg2
 def delete_user(mydb,cursor):
     try:
         # Query a executar: Eliminar el usuari amb user_id = 1
-        sql_delete = '''DELETE FROM public.USERS WHERE user_id = 3'''
+        sql_delete = '''DELETE FROM public.USERS WHERE user_id = 1'''
         
         # Executar la consulta SQL
         cursor.execute(sql_delete)
