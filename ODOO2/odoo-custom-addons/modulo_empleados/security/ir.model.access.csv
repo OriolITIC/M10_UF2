@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_modulo_empleados_modulo_empleados,modulo_empleados.modulo_empleados,model_modulo_empleados_modulo_empleados,base.group_user,1,1,1,1
