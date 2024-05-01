@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="seguimiento_impacto_social.list">
+      <field name="name">SeguimientoIMpactoSocial list</field>
+      <field name="model">seguimiento_impacto_social.seguimiento_impacto_social</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="seguimiento_impacto_social.action_window">
+      <field name="name">SeguimientoIMpactoSocial window</field>
+      <field name="res_model">seguimiento_impacto_social.seguimiento_impacto_social</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="seguimiento_impacto_social.action_server">
+      <field name="name">SeguimientoIMpactoSocial server</field>
+      <field name="model_id" ref="model_seguimiento_impacto_social_seguimiento_impacto_social"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="SeguimientoIMpactoSocial" id="seguimiento_impacto_social.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="seguimiento_impacto_social.menu_1" parent="seguimiento_impacto_social.menu_root"/>
+    <menuitem name="Menu 2" id="seguimiento_impacto_social.menu_2" parent="seguimiento_impacto_social.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="seguimiento_impacto_social.menu_1_list" parent="seguimiento_impacto_social.menu_1"
+              action="seguimiento_impacto_social.action_window"/>
+    <menuitem name="Server to list" id="seguimiento_impacto_social" parent="seguimiento_impacto_social.menu_2"
+              action="seguimiento_impacto_social.action_server"/>
+
+  </data>
+</odoo>
