@@ -1,9 +1,9 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-
+<!--
     <record model="ir.ui.view" id="comunicacion_interna.list">
-      <field name="name">ComunicacionInterna list</field>
+      <field name="name">comunicacion_interna list</field>
       <field name="model">comunicacion_interna.comunicacion_interna</field>
       <field name="arch" type="xml">
         <tree>
@@ -13,21 +13,21 @@
         </tree>
       </field>
     </record>
-
+-->
 
     <!-- actions opening views on models -->
-
+<!--
     <record model="ir.actions.act_window" id="comunicacion_interna.action_window">
-      <field name="name">ComunicacionInterna window</field>
+      <field name="name">comunicacion_interna window</field>
       <field name="res_model">comunicacion_interna.comunicacion_interna</field>
       <field name="view_mode">tree,form</field>
     </record>
-
+-->
 
     <!-- server action to the one above -->
-
+<!--
     <record model="ir.actions.server" id="comunicacion_interna.action_server">
-      <field name="name">ComunicacionInterna server</field>
+      <field name="name">comunicacion_interna server</field>
       <field name="model_id" ref="model_comunicacion_interna_comunicacion_interna"/>
       <field name="state">code</field>
       <field name="code">
@@ -38,23 +38,23 @@
         }
       </field>
     </record>
-
+-->
 
     <!-- Top menu item -->
-
-    <menuitem name="ComunicacionInterna" id="comunicacion_interna.menu_root"/>
-
+<!--
+    <menuitem name="comunicacion_interna" id="comunicacion_interna.menu_root"/>
+-->
     <!-- menu categories -->
-
+<!--
     <menuitem name="Menu 1" id="comunicacion_interna.menu_1" parent="comunicacion_interna.menu_root"/>
     <menuitem name="Menu 2" id="comunicacion_interna.menu_2" parent="comunicacion_interna.menu_root"/>
-
+-->
     <!-- actions -->
-
+<!--
     <menuitem name="List" id="comunicacion_interna.menu_1_list" parent="comunicacion_interna.menu_1"
               action="comunicacion_interna.action_window"/>
     <menuitem name="Server to list" id="comunicacion_interna" parent="comunicacion_interna.menu_2"
               action="comunicacion_interna.action_server"/>
-
+-->
   </data>
 </odoo>

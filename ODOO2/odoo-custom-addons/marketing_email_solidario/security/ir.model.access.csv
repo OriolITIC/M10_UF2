@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_marketing_email_solidario_marketing_email_solidario,marketing_email_solidario.marketing_email_solidario,model_marketing_email_solidario_marketing_email_solidario,base.group_user,1,1,1,1

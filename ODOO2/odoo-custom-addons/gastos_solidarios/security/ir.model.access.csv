@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gastos_solidarios_gastos_solidarios,gastos_solidarios.gastos_solidarios,model_gastos_solidarios_gastos_solidarios,base.group_user,1,1,1,1

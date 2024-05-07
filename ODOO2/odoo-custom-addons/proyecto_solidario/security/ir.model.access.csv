@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_proyecto_solidario_proyecto_solidario,proyecto_solidario.proyecto_solidario,model_proyecto_solidario_proyecto_solidario,base.group_user,1,1,1,1
