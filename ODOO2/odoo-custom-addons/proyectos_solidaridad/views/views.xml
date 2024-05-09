@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="proyectos_solidaridad.list">
+      <field name="name">ProyectosSolidaridad list</field>
+      <field name="model">proyectos_solidaridad.proyectos_solidaridad</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="proyectos_solidaridad.action_window">
+      <field name="name">ProyectosSolidaridad window</field>
+      <field name="res_model">proyectos_solidaridad.proyectos_solidaridad</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="proyectos_solidaridad.action_server">
+      <field name="name">ProyectosSolidaridad server</field>
+      <field name="model_id" ref="model_proyectos_solidaridad_proyectos_solidaridad"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="ProyectosSolidaridad" id="proyectos_solidaridad.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="proyectos_solidaridad.menu_1" parent="proyectos_solidaridad.menu_root"/>
+    <menuitem name="Menu 2" id="proyectos_solidaridad.menu_2" parent="proyectos_solidaridad.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="proyectos_solidaridad.menu_1_list" parent="proyectos_solidaridad.menu_1"
+              action="proyectos_solidaridad.action_window"/>
+    <menuitem name="Server to list" id="proyectos_solidaridad" parent="proyectos_solidaridad.menu_2"
+              action="proyectos_solidaridad.action_server"/>
+-->
+  </data>
+</odoo>

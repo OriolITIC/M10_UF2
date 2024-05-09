@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="marketing_email_solidaridad.list">
+      <field name="name">MarketingEmailSolidaridad list</field>
+      <field name="model">marketing_email_solidaridad.marketing_email_solidaridad</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="marketing_email_solidaridad.action_window">
+      <field name="name">MarketingEmailSolidaridad 1234</field>
+      <field name="res_model">marketing_email_solidaridad.marketing_email_solidaridad</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="marketing_email_solidaridad.action_server">
+      <field name="name">MarketingEmailSolidaridad server</field>
+      <field name="model_id" ref="model_marketing_email_solidaridad_marketing_email_solidaridad"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="MarketingEmailSolidaridad" id="marketing_email_solidaridad.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="marketing_email_solidaridad.menu_1" parent="marketing_email_solidaridad.menu_root"/>
+    <menuitem name="Menu 2" id="marketing_email_solidaridad.menu_2" parent="marketing_email_solidaridad.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="marketing_email_solidaridad.menu_1_list" parent="marketing_email_solidaridad.menu_1"
+              action="marketing_email_solidaridad.action_window"/>
+    <menuitem name="Server to list" id="marketing_email_solidaridad" parent="marketing_email_solidaridad.menu_2"
+              action="marketing_email_solidaridad.action_server"/>
+
+  </data>
+</odoo>
