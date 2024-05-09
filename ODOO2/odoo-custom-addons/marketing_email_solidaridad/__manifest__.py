@@ -2,9 +2,11 @@
 {
     'name': "MarketingEmailSolidaridad",
 
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+    'summary': """El módulo de Marketing Digital ofrece una solución integral para planificar, 
+    ejecutar y analizar estrategias de marketing en línea. Desde la gestión de campañas 
+    hasta la automatización del marketing y la generación de informes detallados, 
+    nuestro módulo proporciona las herramientas necesarias para optimizar tu presencia en el mundo digital y alcanzar tus objetivos comerciales.
+        """,
 
     'description': """
         Long description of module's purpose
