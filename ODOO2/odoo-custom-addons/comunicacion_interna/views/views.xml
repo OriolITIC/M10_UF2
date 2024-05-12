@@ -1,60 +1,127 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="comunicacion_interna.list">
-      <field name="name">comunicacion_interna list</field>
-      <field name="model">comunicacion_interna.comunicacion_interna</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
+    <data>   
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="comunicacion_interna.action_window">
-      <field name="name">comunicacion_interna window</field>
-      <field name="res_model">comunicacion_interna.comunicacion_interna</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
+        <!-- Actions -->
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="comunicacion_interna.action_server">
-      <field name="name">comunicacion_interna server</field>
-      <field name="model_id" ref="model_comunicacion_interna_comunicacion_interna"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+        <record model="ir.actions.act_window" id="comunicacion_interna.messages">
+            <field name="name">Mensajes Internos Esperanza Solidarida</field>
+            <field name="res_model">comunicacion_interna.message</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="comunicacion_interna" id="comunicacion_interna.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="comunicacion_interna.menu_1" parent="comunicacion_interna.menu_root"/>
-    <menuitem name="Menu 2" id="comunicacion_interna.menu_2" parent="comunicacion_interna.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="comunicacion_interna.menu_1_list" parent="comunicacion_interna.menu_1"
-              action="comunicacion_interna.action_window"/>
-    <menuitem name="Server to list" id="comunicacion_interna" parent="comunicacion_interna.menu_2"
-              action="comunicacion_interna.action_server"/>
--->
-  </data>
+        <record model="ir.actions.act_window" id="comunicacion_interna.events">
+            <field name="name">Eventos Esperanza Solidarida</field>
+            <field name="res_model">comunicacion_interna.event</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="comunicacion_interna.advertisements">
+          <field name="name">Anuncios Esperanza Solidarida</field>
+          <field name="res_model">comunicacion_interna.advertisement</field>  <!-- Corregir aquí -->
+          <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Views -->
+
+         <!-- Formulario para Anuncios -->
+        <record id="advertisement_form_view" model="ir.ui.view">
+            <field name="name">comunicacion_interna.advertisement.form</field>
+            <field name="model">comunicacion_interna.advertisement</field>
+            <field name="arch" type="xml">
+                <form string="Anuncio Interno">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="author_id"/>
+                            <field name="department_id"/>
+                            <field name="title"/>
+                            <field name="body"/>
+                            <field name="attachment_ids"/>
+                            <field name="highlighted"/>
+                            <field name="publication_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Formulario para Eventos -->
+        <record id="event_form_view" model="ir.ui.view">
+            <field name="name">comunicacion_interna.event.form</field>
+            <field name="model">comunicacion_interna.event</field>
+            <field name="arch" type="xml">
+                <form string="Eventos Internos">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="location"/>
+                            <field name="organizer_id"/>
+                            <field name="participant_ids"/>
+                            <field name="department_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Formulario para Mensajes -->
+        <record id="message_form_view" model="ir.ui.view">
+          <field name="name">comunicacion_interna.message.form</field>
+          <field name="model">comunicacion_interna.message</field>
+          <field name="arch" type="xml">
+              <form string="Mensajes Internos">
+                  <sheet>
+                      <group>
+                          <field name="name"/>
+                          <field name="body"/>
+                          <field name="author_id"/>
+                          <field name="recipient_ids"/>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+       </record>
+
+
+        
+
+
+        <!-- Server Action -->
+        <record model="ir.actions.server" id="comunicacion_interna.action_server">
+            <field name="name">ComunicacionInterna server</field>
+            <field name="model_id" ref="model_comunicacion_interna_message"/> <!-- Reemplaza con el modelo correcto -->
+            <field name="state">code</field>
+            <field name="code">
+                action = {
+                    "type": "ir.actions.act_window",
+                    "view_mode": "tree,form",
+                    "res_model": model._name,
+                }
+            </field>
+        </record>
+
+
+
+    <menuitem name="ComunicacionInterna" id="comunicacion_interna.menu_root"/>
+
+    <menuitem name="Mensajes" id="comunicacion_interna.menu_1" parent="comunicacion_interna.menu_root"/>
+    <menuitem name="Eventos" id="comunicacion_interna.menu_2" parent="comunicacion_interna.menu_root"/>
+    <menuitem name="Anuncios" id="comunicacion_interna.menu_3" parent="comunicacion_interna.menu_root"/>
+  
+    <!-- Acciones -->
+
+    <menuitem name="Ver mensajes" id="comunicacion_interna.menu_1_list" parent="comunicacion_interna.menu_1"
+        action="comunicacion_interna.messages"/>
+    <menuitem name="Ver eventos" id="comunicacion_interna.menu_2_list" parent="comunicacion_interna.menu_2"
+        action="comunicacion_interna.events"/>
+    <menuitem name="Ver anuncios" id="comunicacion_interna.menu_3_list" parent="comunicacion_interna.menu_3"
+        action="comunicacion_interna.advertisements"/>
+
+     
+
+    </data>
 </odoo>
