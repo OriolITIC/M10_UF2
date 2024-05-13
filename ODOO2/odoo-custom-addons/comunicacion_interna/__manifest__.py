@@ -1,35 +1,22 @@
-# -*- coding: utf-8 -*-
 {
     'name': "comunicacion_interna",
-
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
+        Gestión de comunicación interna para la organización Esperanza Solidaria.
     """,
-
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    'category': 'Uncategorized',
+    'description': """
+        Este módulo permite gestionar la comunicación interna dentro de la organización Esperanza Solidaria. 
+        Permite enviar mensajes internos, crear eventos y publicar anuncios para mantener a todos los 
+        voluntarios y departamentos informados.
+    """,
+    'author': "Esperanza Solidaria",
+    'website': "http://www.esperanzasolidaria.com",
+    'category': 'Recursos Humanos', 
     'version': '0.1',
-
-    # any module necessary for this one to work correctly
-    'depends': ['base'],
-
-    # always loaded
+    'depends': ['base', 'voluntarios_solidaridad'],  
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/views.xml'
     ],
-    # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        
     ],
 }
