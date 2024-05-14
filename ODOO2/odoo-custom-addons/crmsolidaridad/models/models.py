@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api
 
-
+# Modelo crmsolidaridad
 class crmsolidaridad(models.Model):
     _name = 'crmsolidaridad.crmsolidaridad'
     _description = 'crmsolidaridad.crmsolidaridad'
