@@ -2,9 +2,9 @@
   <data>
     <!-- explicit list view definition -->
 <!--
-    <record model="ir.ui.view" id="inventario_solidaridad.list">
-      <field name="name">InventarioSolidaridad list</field>
-      <field name="model">inventario_solidaridad.inventario_solidaridad</field>
+    <record model="ir.ui.view" id="gastos_solidaridad.list">
+      <field name="name">GastosSolidaridad list</field>
+      <field name="model">gastos_solidaridad.gastos_solidaridad</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -17,18 +17,18 @@
 
     <!-- actions opening views on models -->
 <!--
-    <record model="ir.actions.act_window" id="inventario_solidaridad.action_window">
-      <field name="name">InventarioSolidaridad window</field>
-      <field name="res_model">inventario_solidaridad.inventario_solidaridad</field>
+    <record model="ir.actions.act_window" id="gastos_solidaridad.action_window">
+      <field name="name">GastosSolidaridad window</field>
+      <field name="res_model">gastos_solidaridad.gastos_solidaridad</field>
       <field name="view_mode">tree,form</field>
     </record>
 -->
 
     <!-- server action to the one above -->
 <!--
-    <record model="ir.actions.server" id="inventario_solidaridad.action_server">
-      <field name="name">InventarioSolidaridad server</field>
-      <field name="model_id" ref="model_inventario_solidaridad_inventario_solidaridad"/>
+    <record model="ir.actions.server" id="gastos_solidaridad.action_server">
+      <field name="name">GastosSolidaridad server</field>
+      <field name="model_id" ref="model_gastos_solidaridad_gastos_solidaridad"/>
       <field name="state">code</field>
       <field name="code">
         action = {
@@ -42,19 +42,19 @@
 
     <!-- Top menu item -->
 <!--
-    <menuitem name="InventarioSolidaridad" id="inventario_solidaridad.menu_root"/>
+    <menuitem name="GastosSolidaridad" id="gastos_solidaridad.menu_root"/>
 -->
     <!-- menu categories -->
 <!--
-    <menuitem name="Menu 1" id="inventario_solidaridad.menu_1" parent="inventario_solidaridad.menu_root"/>
-    <menuitem name="Menu 2" id="inventario_solidaridad.menu_2" parent="inventario_solidaridad.menu_root"/>
+    <menuitem name="Menu 1" id="gastos_solidaridad.menu_1" parent="gastos_solidaridad.menu_root"/>
+    <menuitem name="Menu 2" id="gastos_solidaridad.menu_2" parent="gastos_solidaridad.menu_root"/>
 -->
     <!-- actions -->
 <!--
-    <menuitem name="List" id="inventario_solidaridad.menu_1_list" parent="inventario_solidaridad.menu_1"
-              action="inventario_solidaridad.action_window"/>
-    <menuitem name="Server to list" id="inventario_solidaridad" parent="inventario_solidaridad.menu_2"
-              action="inventario_solidaridad.action_server"/>
+    <menuitem name="List" id="gastos_solidaridad.menu_1_list" parent="gastos_solidaridad.menu_1"
+              action="gastos_solidaridad.action_window"/>
+    <menuitem name="Server to list" id="gastos_solidaridad" parent="gastos_solidaridad.menu_2"
+              action="gastos_solidaridad.action_server"/>
 -->
   </data>
 </odoo>

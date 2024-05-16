@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+#rom odoo import models, fields
 
+""" class Categoria(models.Model):
+    _name = 'mi_modulo_inventario.categoria'
+    _description = 'Categoría de Producto' """
 
-# class inventario_solidaridad(models.Model):
-#     _name = 'inventario_solidaridad.inventario_solidaridad'
-#     _description = 'inventario_solidaridad.inventario_solidaridad'
+"""     name = fields.Char('Nombre', required=True)
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+class Producto(models.Model):
+    _name = 'mi_modulo_inventario.producto'
+    _description = 'Producto'
+
+    name = fields.Char('Nombre', required=True)
+    cantidad = fields.Integer('Cantidad', required=True)
+    categoria_id = fields.Many2one('mi_modulo_inventario.categoria', string='Categoría', required=True) """
