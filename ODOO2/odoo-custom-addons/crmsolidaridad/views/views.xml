@@ -1,31 +1,73 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
+
     <record model="ir.ui.view" id="crmsolidaridad.list">
-      <field name="name">CRMSolidaridad list</field>
-      <field name="model">crmsolidaridad.crmsolidaridad</field>
+      <field name="name">Custom CRM Client Tree View</field>
+      <field name="model">custom.crm.client</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="email"/>
+          <field name="phone"/>
+          <field name="client_type"/>
+        
         </tree>
       </field>
     </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="crmsolidaridad.action_window">
-      <field name="name">CRMSolidaridad window</field>
-      <field name="res_model">crmsolidaridad.crmsolidaridad</field>
+ <record model="ir.ui.view" id="view_custom_crm_pipeline_form">
+      <field name="name">custom.crm.pipeline.form</field>
+      <field name="model">custom.crm.pipeline</field>
+      <field name="arch" type="xml">
+        <form string="Crear Nueva Oportunidad">
+          <sheet>
+            <group>
+              <field name="name" string="Título"/>
+              <field name="cliente_id" string="Cliente"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista de árbol para custom.crm.pipeline -->
+    <record model="ir.ui.view" id="view_custom_crm_pipeline_tree">
+      <field name="name">custom.crm.pipeline.tree</field>
+      <field name="model">custom.crm.pipeline</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="cliente_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Acción para custom.crm.pipeline -->
+    <record model="ir.actions.act_window" id="action_custom_crm_pipeline">
+      <field name="name">Oportunidades</field>
+      <field name="res_model">custom.crm.pipeline</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
+   
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="crmsolidaridad.action_window">
+      <field name="name">Clientes</field>
+      <field name="res_model">custom.crm.client</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+
+
 
     <!-- server action to the one above -->
-<!--
+
     <record model="ir.actions.server" id="crmsolidaridad.action_server">
       <field name="name">CRMSolidaridad server</field>
       <field name="model_id" ref="model_crmsolidaridad_crmsolidaridad"/>
@@ -38,23 +80,53 @@
         }
       </field>
     </record>
--->
+
 
     <!-- Top menu item -->
-<!--
+
     <menuitem name="CRMSolidaridad" id="crmsolidaridad.menu_root"/>
--->
+
     <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="crmsolidaridad.menu_1" parent="crmsolidaridad.menu_root"/>
-    <menuitem name="Menu 2" id="crmsolidaridad.menu_2" parent="crmsolidaridad.menu_root"/>
--->
+
+    <menuitem name="Ventas" id="crmsolidaridad.menu_1" parent="crmsolidaridad.menu_root"/>
+    <menuitem name="Clientes" id="crmsolidaridad.menu_2" parent="crmsolidaridad.menu_root"
+    action="crmsolidaridad.action_window"
+       />
+    <menuitem name="Reuniones" id="crmsolidaridad.menu_3" parent="crmsolidaridad.menu_root"/>
+     <menuitem name="Informes" id="crmsolidaridad.menu_4" parent="crmsolidaridad.menu_root"/>
+      <menuitem name="Oportunidades" id="menu_custom_crm_pipeline" parent="crmsolidaridad.menu_root"
+      action="action_custom_crm_pipeline"/>
+
+     <!-- <menuitem name="Oportunidades" id="menu_custom_crm_pipeline" parent="menu_crmsolidaridad_root"
+      action="action_custom_crm_pipeline"/>-->
     <!-- actions -->
-<!--
+
     <menuitem name="List" id="crmsolidaridad.menu_1_list" parent="crmsolidaridad.menu_1"
               action="crmsolidaridad.action_window"/>
-    <menuitem name="Server to list" id="crmsolidaridad" parent="crmsolidaridad.menu_2"
+    <!--<menuitem name="Server to list" id="crmsolidaridad.menu_2_list" parent="crmsolidaridad.menu_2"
+              action="crmsolidaridad.action_server"/>-->
+    <menuitem name="Server to list" id="crmsolidaridad.menu_3_list" parent="crmsolidaridad.menu_3"
               action="crmsolidaridad.action_server"/>
--->
+    <menuitem name="Server to list" id="crmsolidaridad.menu_4_list" parent="crmsolidaridad.menu_4"
+              action="crmsolidaridad.action_server"/>
+
+
+          <record model="ir.ui.view" id="custom_crm_client_form_view">
+      <field name="name">custom.crm.client.form</field>
+      <field name="model">custom.crm.client</field>
+      <field name="arch" type="xml">
+        <form string="Custom CRM Client">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="email"/>
+              <field name="phone"/>
+              <field name="client_type"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>     
+
   </data>
 </odoo>
