@@ -1,0 +1,238 @@
+<odoo>
+  <data>   
+
+    <!-- Actions -->
+
+    <record model="ir.actions.act_window" id="eventos_solidaridad.events">
+        <field name="name">Eventos Esperanza Solidarida</field>
+        <field name="res_model">eventos_solidaridad.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="eventos_solidaridad.participants">
+        <field name="name">Participantes eventos Esperanza Solidarida</field>
+        <field name="res_model">eventos_solidaridad.participant</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="eventos_solidaridad.tasks">
+        <field name="name">Tareas eventos Esperanza Solidarida</field>
+        <field name="res_model">eventos_solidaridad.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="eventos_solidaridad.surveys">
+        <field name="name">Encuestas eventos Esperanza Solidaria</field>
+        <field name="res_model">eventos_solidaridad.survey</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_event_form" model="ir.ui.view">
+      <field name="name">eventos_solidaridad.event.form</field>
+      <field name="model">eventos_solidaridad.event</field>
+      <field name="arch" type="xml">
+          <form string="Evento Esperanza Solidaria">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="description"/>
+                      <field name="date_start"/>
+                      <field name="date_end"/>
+                      <field name="location"/>
+                      <field name="budget"/>
+                      <field name="project_id"/>
+                      <field name="survey_id"/>
+                  </group>
+                  <notebook>
+                      <page string="Participantes">
+                          <field name="participant_ids" widget="many2many" options="{'create_edit': true}">
+                              <form string="Nuevo Participante">
+                                  <group>
+                                      <field name="name"/>
+                                      <field name="email"/>
+                                      <field name="phone"/>
+                                  </group>
+                              </form>
+                          </field>
+                      </page>
+                      <page string="Tareas">
+                        <field name="task_ids" widget="many2many_tags" options="{'create_edit': False}">
+                            <form string="Nueva Tarea">
+                                <group>
+                                    <field name="name"/>
+                                    <field name="deadline"/>
+                                    <field name="responsible_id"/>
+                                    <field name="state"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+
+                  </notebook>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+
+
+    <record id="view_event_tree" model="ir.ui.view">
+        <field name="name">eventos_solidaridad.event.tree</field>
+        <field name="model">eventos_solidaridad.event</field>
+        <field name="arch" type="xml">
+            <tree string="Eventos Esperanza Solidaria">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_participant_form" model="ir.ui.view">
+      <field name="name">eventos_solidaridad.participant.form</field>
+      <field name="model">eventos_solidaridad.participant</field>
+      <field name="arch" type="xml">
+          <form string="Event Participant">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="email"/>
+                      <field name="phone"/>
+                      <field name="event_id"/>
+                  </group>
+                  <field name="survey_ids">
+                      <tree string="Completed Surveys">
+                          <field name="name"/>
+                          <field name="date_sent"/>
+                      </tree>
+                  </field>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record id="view_participant_tree" model="ir.ui.view">
+        <field name="name">eventos_solidaridad.participant.tree</field>
+        <field name="model">eventos_solidaridad.participant</field>
+        <field name="arch" type="xml">
+            <tree string="Participants">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="event_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_task_form" model="ir.ui.view">
+      <field name="name">eventos_solidaridad.task.form</field>
+      <field name="model">eventos_solidaridad.task</field>
+      <field name="arch" type="xml">
+          <form string="Event Task">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="description"/>
+                      <field name="deadline"/>
+                      <field name="responsible_id"/>
+                      <field name="event_id"/>
+                      <field name="state"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record id="view_task_tree" model="ir.ui.view">
+        <field name="name">eventos_solidaridad.task.tree</field>
+        <field name="model">eventos_solidaridad.task</field>
+        <field name="arch" type="xml">
+            <tree string="Tasks">
+                <field name="name"/>
+                <field name="deadline"/>
+                <field name="responsible_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="view_survey_form" model="ir.ui.view">
+      <field name="name">eventos_solidaridad.survey.form</field>
+      <field name="model">eventos_solidaridad.survey</field>
+      <field name="arch" type="xml">
+          <form string="Satisfaction Survey">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="date_sent"/>
+                      <field name="responses"/>
+                      <field name="event_id"/>
+                      <field name="participant_id"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record id="view_survey_tree" model="ir.ui.view">
+        <field name="name">eventos_solidaridad.survey.tree</field>
+        <field name="model">eventos_solidaridad.survey</field>
+        <field name="arch" type="xml">
+            <tree string="Surveys">
+                <field name="name"/>
+                <field name="date_sent"/>
+                <field name="event_id"/>
+                <field name="participant_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+
+
+
+       
+
+    <!-- Server Action -->
+
+    <record model="ir.actions.server" id="eventos_solidaridad.action_server">
+        <field name="name">EventosSolidaridad server</field>
+        <field name="model_id" ref="model_eventos_solidaridad_event"/> <!-- Reemplaza con el modelo correcto -->
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+                "type": "ir.actions.act_window",
+                "view_mode": "tree,form",
+                "res_model": model._name,
+            }
+        </field>
+    </record>
+
+
+    <!-- Top Menu Item -->
+
+    <menuitem name="EventosSolidaridad" id="eventos_solidaridad.menu_root"/>
+
+    <menuitem name="Eventos" id="eventos_solidaridad.menu_1" parent="eventos_solidaridad.menu_root"/>
+    <menuitem name="Participantes" id="eventos_solidaridad.menu_2" parent="eventos_solidaridad.menu_root"/>
+    <menuitem name="Tareas" id="eventos_solidaridad.menu_3" parent="eventos_solidaridad.menu_root"/>
+    <menuitem name="Encuestas" id="eventos_solidaridad.menu_4" parent="eventos_solidaridad.menu_root"/>
+    
+    <!-- Acciones -->
+
+    <menuitem name="Ver eventos" id="eventos_solidaridad.menu_1_list" parent="eventos_solidaridad.menu_1"
+        action="eventos_solidaridad.events"/>
+    <menuitem name="Ver participantes" id="eventos_solidaridad.menu_2_list" parent="eventos_solidaridad.menu_2"
+        action="eventos_solidaridad.participants"/>
+    <menuitem name="Ver tareas" id="eventos_solidaridad.menu_3_list" parent="eventos_solidaridad.menu_3"
+        action="eventos_solidaridad.tasks"/>
+    <menuitem name="Ver encuestas" id="eventos_solidaridad.menu_4_list" parent="eventos_solidaridad.menu_4" 
+        action="eventos_solidaridad.surveys"/>
+
+  </data>
+</odoo>
