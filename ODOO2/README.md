@@ -19,7 +19,7 @@ Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria en 
 4. **Registro Detallado de Resultados**: Registre los resultados obtenidos en relación con cada impacto social, desde datos cuantitativos hasta historias de éxito y testimonios de beneficiarios.<br><br>
 5. **Visualización de Datos y Análisis**: Utilice las herramientas de visualización de datos para analizar los resultados y comunicar el impacto de manera efectiva a las partes interesadas internas y externas.<br><br>
 
-![Módulo de Gestión de Impacto Social para Esperanza Solidaria](/screenshots/impacto_social.png)
+![Módulo de Gestión de Impacto Social para Esperanza Solidaria](screenshots/impacto_social.png)
 
 
 Con este módulo, Esperanza Solidaria puede mejorar su capacidad para medir, gestionar y comunicar el impacto social de sus acciones, lo que le permite avanzar hacia sus objetivos de manera más efectiva y transparente.
