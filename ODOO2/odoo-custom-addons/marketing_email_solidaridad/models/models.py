@@ -18,25 +18,38 @@ class marketing_email_solidaridad(models.Model):
             record.value2 = float(record.value) / 100"""
 
 
-class Empresa(models.Model):
-    _name = 'marketing_digital.empresa'
-    _description = 'Información de la Empresa'
+from odoo import models, fields, api
 
+class EmailTemplate(models.Model):
+    _name = 'email.template'
+    _description = 'Email Template'
 
-    name = fields.Char(string='Nombre')
-    email = fields.Char(string='Email')
-    telefono = fields.Char(string='Teléfono')
+    name = fields.Char(string='Nombre de la plantilla', required=True)
+    subject = fields.Char(string='Asunto', required=True)
+    body = fields.Html(string='Cuerpo del correo', required=True)
 
-class CorreoEnviado(models.Model):
-    _name = 'marketing_digital.correo_enviado'
-    _description = 'Correos Enviados'
+class SentEmail(models.Model):
+    _name = 'sent.email'
+    _description = 'Emails enviados'
 
-    
-    email = fields.Char(string='Email')
-    asunto = fields.Char(string='Asunto')
-    mensaje = fields.Text(string='Mensaje')
-    photo = fields.Binary(string='Foto')
-    fecha = fields.Date(string='Fecha')
+    email_template_id = fields.Many2one('email.template', string='Plantilla de correo', required=True)
+    company_id = fields.Many2one('res.company', string='Compañía', required=True)
+    recipient = fields.Char(string='Destinatario', required=True)
+    subject = fields.Char(string='Asunto', required=True)
+    body = fields.Html(string='Cuerpo del correo', required=True)
+    sent_date = fields.Datetime(string='Fecha de envío', default=fields.Datetime.now)
 
+class EmailList(models.Model):
+    _name = 'email.list'
+    _description = 'Lista de correos electrónicos'
 
-    empresa_id = fields.Many2one('marketing_digital.empresa', string='Empresa')
+    name = fields.Char(string='Nombre de la lista', required=True)
+    company_id = fields.Many2one('res.company', string='Compañía', required=True)
+    email = fields.Char(string='Correo electrónico', required=True)
+
+class Contact(models.Model):
+    _name = 'res.partner'
+    _inherit = 'res.partner'
+
+    email_list_id = fields.One2one('email.list', string='Lista de correos electrónicos', required=True)
+
