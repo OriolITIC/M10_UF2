@@ -1,3 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import beneficiary
+from . import impact
+from . import indicator
+from . import result
