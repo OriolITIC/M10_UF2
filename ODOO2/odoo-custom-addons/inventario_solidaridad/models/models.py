@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-#rom odoo import models, fields
+# -*- coding: utf-8 -*rom odoo import models, fields
 
 """ class Categoria(models.Model):
     _name = 'mi_modulo_inventario.categoria'
