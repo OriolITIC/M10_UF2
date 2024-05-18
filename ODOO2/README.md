@@ -1,3 +1,30 @@
+# Módulo Eventos 
+
+Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria a gestionar y organizar eventos solidarios de manera eficiente. Proporciona herramientas completas para registrar eventos, administrar participantes, asignar tareas, realizar encuestas de satisfacción y realizar un seguimiento del presupuesto.
+
+## Características
+
+- **Registro de Eventos**: Registra y administra eventos solidarios organizados por Esperanza Solidaria, incluyendo detalles como el nombre, la descripción, la fecha y la ubicación.<br><br>
+- **Gestión de Participantes**: Permite registrar participantes para cada evento, incluyendo sus datos de contacto y su participación en encuestas de satisfacción.<br><br>
+- **Asignación de Tareas**: Facilita la asignación y seguimiento de tareas relacionadas con cada evento, con información detallada sobre la descripción, la fecha límite y el responsable.<br><br>
+- **Encuestas de Satisfacción**: Permite enviar y gestionar encuestas de satisfacción para recopilar retroalimentación de los participantes sobre la experiencia del evento.<br><br>
+- **Seguimiento del Presupuesto**: Ofrece la capacidad de realizar un seguimiento del presupuesto asignado a cada evento y compararlo con los gastos reales.<br><br>
+
+## Uso
+
+1. **Registro de Eventos**: Registre nuevos eventos completando los detalles requeridos, como el nombre, la fecha y la ubicación.<br><br>
+2. **Gestión de Participantes**: Agregue participantes a cada evento, proporcionando información como nombres, correos electrónicos y números de teléfono.<br><br>
+3. **Asignación de Tareas**: Asigne tareas específicas a los responsables designados y haga un seguimiento del progreso de cada tarea.<br><br>
+4. **Realización de Encuestas**: Envíe encuestas de satisfacción a los participantes después de cada evento y recopile sus respuestas para evaluar la experiencia.<br><br>
+5. **Seguimiento del Presupuesto**: Registre los gastos asociados con cada evento y realice un seguimiento del presupuesto disponible para garantizar una gestión financiera efectiva.<br><br>
+
+![Módulo de Gestión de Eventos para Esperanza Solidaria](screenshots/eventos.png)
+
+Con este módulo, Esperanza Solidaria puede planificar, ejecutar y evaluar sus eventos solidarios de manera más organizada y efectiva, lo que contribuye a su misión de generar un impacto positivo en la comunidad.<br><br>
+
+
+
+
 # Módulo Impacto Social 
 
 Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria en su misión de hacer un seguimiento del impacto social de sus proyectos y actividades. Proporciona herramientas integrales para registrar, analizar y comunicar los impactos generados, los beneficiarios involucrados, los indicadores clave de rendimiento y los resultados obtenidos.
