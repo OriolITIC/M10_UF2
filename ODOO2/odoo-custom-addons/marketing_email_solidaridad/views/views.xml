@@ -34,40 +34,48 @@
       </field>
   </record>
 
-  <!-- Vista tree para email.marketing.enviado -->
   <record id="view_enviado_tree" model="ir.ui.view">
-      <field name="name">email.marketing.enviado.tree</field>
-      <field name="model">email.marketing.enviado</field>
-      <field name="arch" type="xml">
-          <tree>
-              <field name="destinatario"/>
-              <field name="asunto"/>
-              <field name="fecha_envio"/>
-              <field name="empresa_id"/>
-          </tree>
-      </field>
-  </record>
+        <field name="name">email.marketing.enviado.tree</field>
+        <field name="model">email.marketing.enviado</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="destinatarios_ids" widget="many2many_tags"/>
+                <field name="asunto"/>
+                <field name="fecha_envio"/>
+                <!-- <field name="voluntario_name"/> -->
+            </tree>
+        </field>
+    </record>
 
-  <!-- Vista form para email.marketing.enviado -->
-  <record id="view_enviado_form" model="ir.ui.view">
-      <field name="name">email.marketing.enviado.form</field>
-      <field name="model">email.marketing.enviado</field>
-      <field name="arch" type="xml">
-          <form>
-              <sheet>
-                  <group>
-                      <field name="destinatario"/>
-                      <field name="asunto"/>
-                      <field name="fecha_envio"/>
-                  </group>
-                  <group>
-                      <field name="mensaje"/>
-                  </group>
-                  <field name="empresa_id"/>
-              </sheet>
-          </form>
-      </field>
-  </record>
+ <!-- Vista form para email.marketing.enviado -->
+<record id="view_enviado_form" model="ir.ui.view">
+    <field name="name">email.marketing.enviado.form</field>
+    <field name="model">email.marketing.enviado</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <!-- Usa el campo many2many para seleccionar destinatarios -->
+                    <field name="destinatarios_ids" widget="many2many" string="Destinatarios"/>
+                    <field name="asunto"/>
+                    <field name="fecha_envio"/>
+                </group>
+                <group>
+                    <!-- <field name="voluntario_id" widget="many2one" string="Voluntario"/> -->
+
+                    <field name="mensaje"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+
+
+
+
 
   <!-- Acciones y menús -->
   <!-- Acción para abrir el formulario de creación de contactos -->
@@ -112,4 +120,7 @@
   <!-- Submenús para Lista de correos -->
   <menuitem id="menu_envios" name="Lista Correos" parent="menu_email_marketing" action="action_envios"/>
   <menuitem id="menu_ver_email" name="Ver correos enviados" parent="menu_envios" action="action_envios"/>
+
+  <menuitem id="menu_campaña" name="Campañas" parent="menu_email_marketing" action="action_envios"/>
+
 </odoo>
