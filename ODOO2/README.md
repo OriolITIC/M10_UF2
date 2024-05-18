@@ -1,4 +1,34 @@
-# Módulo Eventos 
+# Módulo Voluntarios Solidarios
+
+Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria en la gestión de voluntarios y departamentos, facilitando el seguimiento de las actividades, estadísticas y la asignación de voluntarios a diferentes áreas de interés.<br><br>
+
+## Características
+
+- **Gestión de Voluntarios**: Registra y administra información detallada de los voluntarios, incluyendo su foto, nombre, correo electrónico, teléfono, ciudad y departamento de interés.<br><br>
+
+- **Gestión de Departamentos**: Permite la creación y administración de diferentes departamentos dentro de la organización, con detalles como el nombre, código, teléfono y lista de voluntarios asociados.<br><br>
+
+- **Gestión de Actividades**: Registra y administra información sobre las actividades realizadas por los voluntarios, incluyendo detalles como el nombre de la actividad y la lista de voluntarios involucrados.<br><br>
+
+- **Estadísticas de Voluntarios**: Proporciona estadísticas sobre la cantidad de voluntarios asociados a cada departamento, permitiendo un seguimiento detallado de la participación.<br><br>
+
+## Uso
+
+1. **Registro de Voluntarios**: Registre nuevos voluntarios ingresando su información personal y asignándolos a un departamento específico.<br><br>
+
+2. **Gestión de Departamentos**: Cree nuevos departamentos y asigne voluntarios a cada uno de ellos según sus intereses y habilidades.<br><br>
+
+3. **Registro de Actividades**: Registre las actividades realizadas por los voluntarios, incluyendo los detalles de la actividad y la lista de voluntarios involucrados.<br><br>
+
+4. **Seguimiento de Estadísticas**: Realice un seguimiento del número de voluntarios asociados a cada departamento para evaluar la participación y la distribución de recursos.<br><br>
+
+![Módulo de gestión de voluntarios de Esperanza Solidaria](screenshots/voluntarios.png)
+
+Con este módulo, Esperanza Solidaria puede gestionar de manera eficiente su red de voluntarios, departamentos y actividades, facilitando la colaboración y el cumplimiento de sus objetivos solidarios.<br><br><br><br>
+
+
+
+# Módulo Eventos Solidaridad
 
 Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria a gestionar y organizar eventos solidarios de manera eficiente. Proporciona herramientas completas para registrar eventos, administrar participantes, asignar tareas, realizar encuestas de satisfacción y realizar un seguimiento del presupuesto.
 
@@ -20,7 +50,7 @@ Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria a g
 
 ![Módulo de gestión de eventos para Esperanza Solidaria](screenshots/eventos.png)
 
-Con este módulo, Esperanza Solidaria puede planificar, ejecutar y evaluar sus eventos solidarios de manera más organizada y efectiva, lo que contribuye a su misión de generar un impacto positivo en la comunidad.<br><br>
+Con este módulo, Esperanza Solidaria puede planificar, ejecutar y evaluar sus eventos solidarios de manera más organizada y efectiva, lo que contribuye a su misión de generar un impacto positivo en la comunidad.<br><br><br><br>
 
 
 
