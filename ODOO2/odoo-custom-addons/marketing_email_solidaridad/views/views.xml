@@ -1,162 +1,115 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+  <!-- Vista tree para email.marketing.empresa -->
+  <record id="view_empresa_tree" model="ir.ui.view">
+      <field name="name">email.marketing.empresa.tree</field>
+      <field name="model">email.marketing.empresa</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="name"/>
+              <field name="email"/>
+              <field name="contact_type"/>
+              <field name="description"/>
+          </tree>
+      </field>
+  </record>
 
-        <!-- Email Template View -->
-        <record id="view_email_template_form" model="ir.ui.view">
-            <field name="name">email.template.form</field>
-            <field name="model">email.template</field>
-            <field name="arch" type="xml">
-                <form string="Plantilla de correo">
-                    <group>
-                        <field name="name"/>
-                        <field name="subject"/>
-                        <field name="body"/>
-                    </group>
-                </form>
-            </field>
-        </record>
+  <!-- Vista form para email.marketing.empresa -->
+  <record id="view_empresa_form" model="ir.ui.view">
+      <field name="name">email.marketing.empresa.form</field>
+      <field name="model">email.marketing.empresa</field>
+      <field name="arch" type="xml">
+          <form>
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="email"/>
+                      <field name="contact_type"/>
+                  </group>
+                  <group>
+                      <field name="description"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+  </record>
 
-        <record id="view_email_template_tree" model="ir.ui.view">
-            <field name="name">email.template.tree</field>
-            <field name="model">email.template</field>
-            <field name="arch" type="xml">
-                <tree string="Plantillas de correo">
-                    <field name="name"/>
-                    <field name="subject"/>
-                </tree>
-            </field>
-        </record>
+  <!-- Vista tree para email.marketing.enviado -->
+  <record id="view_enviado_tree" model="ir.ui.view">
+      <field name="name">email.marketing.enviado.tree</field>
+      <field name="model">email.marketing.enviado</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="destinatario"/>
+              <field name="asunto"/>
+              <field name="fecha_envio"/>
+              <field name="empresa_id"/>
+          </tree>
+      </field>
+  </record>
 
-        <!-- Sent Email View -->
-        <record id="view_sent_email_form" model="ir.ui.view">
-            <field name="name">sent.email.form</field>
-            <field name="model">sent.email</field>
-            <field name="arch" type="xml">
-                <form string="Correo electrónico enviado">
-                    <group>
-                        <field name="email_template_id"/>
-                        <field name="company_id"/>
-                        <field name="recipient"/>
-                        <field name="subject"/>
-                        <field name="body"/>
-                        <field name="sent_date"/>
-                    </group>
-                </form>
-            </field>
-        </record>
+  <!-- Vista form para email.marketing.enviado -->
+  <record id="view_enviado_form" model="ir.ui.view">
+      <field name="name">email.marketing.enviado.form</field>
+      <field name="model">email.marketing.enviado</field>
+      <field name="arch" type="xml">
+          <form>
+              <sheet>
+                  <group>
+                      <field name="destinatario"/>
+                      <field name="asunto"/>
+                      <field name="fecha_envio"/>
+                  </group>
+                  <group>
+                      <field name="mensaje"/>
+                  </group>
+                  <field name="empresa_id"/>
+              </sheet>
+          </form>
+      </field>
+  </record>
 
-        <record id="view_sent_email_tree" model="ir.ui.view">
-            <field name="name">sent.email.tree</field>
-            <field name="model">sent.email</field>
-            <field name="arch" type="xml">
-                <tree string="Correos electrónicos enviados">
-                    <field name="recipient"/>
-                    <field name="subject"/>
-                    <field name="sent_date"/>
-                </tree>
-            </field>
-        </record>
+  <!-- Acciones y menús -->
+  <!-- Acción para abrir el formulario de creación de contactos -->
+  <record id="action_create_contact" model="ir.actions.act_window">
+      <field name="name">Crear Contacto</field>
+      <field name="res_model">email.marketing.empresa</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_empresa_form"/>
+      <field name="target">current</field>
+  </record>
 
-        <!-- Email List View -->
-        <record id="view_email_list_form" model="ir.ui.view">
-            <field name="name">email.list.form</field>
-            <field name="model">email.list</field>
-            <field name="arch" type="xml">
-                <form string="Lista de correos electrónicos">
-                    <group>
-                        <field name="name"/>
-                        <field name="company_id"/>
-                        <field name="email"/>
-                    </group>
-                </form>
-            </field>
-        </record>
+  <!-- Acción para abrir el formulario de envío de correos -->
+  <record id="action_create_email" model="ir.actions.act_window">
+      <field name="name">Enviar Correo</field>
+      <field name="res_model">email.marketing.enviado</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_enviado_form"/>
+      <field name="target">current</field>
+  </record>
 
-        <record id="view_email_list_tree" model="ir.ui.view">
-            <field name="name">email.list.tree</field>
-            <field name="model">email.list</field>
-            <field name="arch" type="xml">
-                <tree string="Listas de correos electrónicos">
-                    <field name="name"/>
-                    <field name="company_id"/>
-                </tree>
-            </field>
-        </record>
+  <!-- Acción para abrir la lista de contactos -->
+  <record id="action_empresas" model="ir.actions.act_window">
+      <field name="name">Contactos</field>
+      <field name="res_model">email.marketing.empresa</field>
+      <field name="view_mode">tree,form</field>
+  </record>
 
-        <!-- Contact View -->
-        <record id="view_contact_form" model="ir.ui.view">
-            <field name="name">res.partner.form</field>
-            <field name="model">res.partner</field>
-            <field name="arch" type="xml">
-                <form string="Contacto">
-                    <group>
-                        <field name="email_list_id"/>
-                    </group>
-                </form>
-            </field>
-        </record>
+  <!-- Acción para abrir la lista de correos enviados -->
+  <record id="action_envios" model="ir.actions.act_window">
+      <field name="name">Lista Correos</field>
+      <field name="res_model">email.marketing.enviado</field>
+      <field name="view_mode">tree,form</field>
+  </record>
 
-        <!-- Marketing Email Solidaridad Model -->
-        <record model="ir.model" id="marketing_email_solidaridad_marketing_email_solidaridad">
-            <field name="model">marketing_email_solidaridad.marketing_email_solidaridad</field>
-            <field name="name">Marketing Email Solidaridad</field>
-            <field name="description">Modelo para marketing email solidaridad</field>
-        </record>
+  <!-- Menú principal -->
+  <menuitem id="menu_email_marketing" name="Email Marketing" />
 
-        <!-- Marketing Email Solidaridad View -->
-        <record id="marketing_email_solidaridad.list" model="ir.ui.view">
-            <field name="name">MarketingEmailSolidaridad list</field>
-            <field name="model">marketing_email_solidaridad.marketing_email_solidaridad</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-                    <field name="value"/>
-                    <field name="value2"/>
-                </tree>
-            </field>
-        </record>
+  <!-- Submenús para Contactos -->
+  <menuitem id="menu_empresas" name="Contactos" parent="menu_email_marketing" action="action_empresas"/>
+  <menuitem id="menu_ver_empresas" name="Ver contactos" parent="menu_empresas" action="action_empresas"/>
 
-        <!-- Actions opening views on models -->
-        <record model="ir.actions.act_window" id="marketing_email_solidaridad.action_window">
-            <field name="name">MarketingEmailSolidaridad 1234</field>
-            <field name="res_model">marketing_email_solidaridad.marketing_email_solidaridad</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <!-- Server action to the one above -->
-        <record model="ir.actions.server" id="marketing_email_solidaridad.action_server">
-            <field name="name">MarketingEmailSolidaridad server</field>
-            <field name="model_id" ref="marketing_email_solidaridad_marketing_email_solidaridad"/>
-            <field name="state">code</field>
-            <field name="code">
-                from odoo import models
-                from odoo.exceptions import except_orm
-                class marketing_email_solidaridad_server(models.Model):
-                    _name = 'marketing_email_solidaridad.marketing_email_solidaridad'
-                action = {
-                    "type": "ir.actions.act_window",
-                    "view_mode": "tree,form",
-                    "res_model": 'marketing_email_solidaridad.marketing_email_solidaridad',
-                }
-            </field>
-        </record>
-
-        <!-- Top menu item -->
-        <menuitem name="MarketingEmailSolidaridad" id="marketing_email_solidaridad.menu_root"/>
-
-
-        <!-- menu categories -->
-        <menuitem name="Menu 1" id="marketing_email_solidaridad.menu_1" parent="marketing_email_solidaridad.menu_root"/>
-        <menuitem name="Menu 2" id="marketing_email_solidaridad.menu_2" parent="marketing_email_solidaridad.menu_root"/>
-
-
-        <!-- actions -->
-        <menuitem name="List" id="marketing_email_solidaridad.menu_1_list" parent="marketing_email_solidaridad.menu_1"
-                  action="marketing_email_solidaridad.action_window"/>
-        <menuitem name="Server to list" id="marketing_email_solidaridad" parent="marketing_email_solidaridad.menu_2"
-                  action="marketing_email_solidaridad.action_server"/>
-
-
-    </data>
+  <!-- Submenús para Lista de correos -->
+  <menuitem id="menu_envios" name="Lista Correos" parent="menu_email_marketing" action="action_envios"/>
+  <menuitem id="menu_ver_email" name="Ver correos enviados" parent="menu_envios" action="action_envios"/>
 </odoo>
