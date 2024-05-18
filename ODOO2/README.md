@@ -18,7 +18,7 @@ Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria a g
 4. **Realización de Encuestas**: Envíe encuestas de satisfacción a los participantes después de cada evento y recopile sus respuestas para evaluar la experiencia.<br><br>
 5. **Seguimiento del Presupuesto**: Registre los gastos asociados con cada evento y realice un seguimiento del presupuesto disponible para garantizar una gestión financiera efectiva.<br><br>
 
-![Módulo de Gestión de Eventos para Esperanza Solidaria](screenshots/eventos.png)
+![Módulo de gestión de eventos para Esperanza Solidaria](screenshots/eventos.png)
 
 Con este módulo, Esperanza Solidaria puede planificar, ejecutar y evaluar sus eventos solidarios de manera más organizada y efectiva, lo que contribuye a su misión de generar un impacto positivo en la comunidad.<br><br>
 
@@ -46,7 +46,7 @@ Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria en 
 4. **Registro Detallado de Resultados**: Registre los resultados obtenidos en relación con cada impacto social, desde datos cuantitativos hasta historias de éxito y testimonios de beneficiarios.<br><br>
 5. **Visualización de Datos y Análisis**: Utilice las herramientas de visualización de datos para analizar los resultados y comunicar el impacto de manera efectiva a las partes interesadas internas y externas.<br><br>
 
-![Módulo de Gestión de Impacto Social para Esperanza Solidaria](screenshots/impacto_social.png)
+![Módulo de gestión del impacto social para Esperanza Solidaria](screenshots/impacto_social.png)
 
 
 Con este módulo, Esperanza Solidaria puede mejorar su capacidad para medir, gestionar y comunicar el impacto social de sus acciones, lo que le permite avanzar hacia sus objetivos de manera más efectiva y transparente.
