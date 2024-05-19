@@ -151,7 +151,6 @@
 
 
 
-
 <!-- Acción para abrir la lista de correos enviados -->
 <record id="action_envios" model="ir.actions.act_window">
     <field name="name">Lista Correos</field>

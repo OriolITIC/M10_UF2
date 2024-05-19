@@ -61,6 +61,5 @@ class EmailEnviado(models.Model):
 
 
 
-
   # Campo computed para mostrar los correos electrónicos de los destinatarios
   destinatario_emails = fields.Char(string='Destinatarios Emails', compute='_compute_destinatario_emails')
