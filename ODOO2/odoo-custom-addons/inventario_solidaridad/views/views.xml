@@ -1,60 +1,117 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="gastos_solidaridad.list">
-      <field name="name">GastosSolidaridad list</field>
-      <field name="model">gastos_solidaridad.gastos_solidaridad</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
+    <data>   
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="gastos_solidaridad.action_window">
-      <field name="name">GastosSolidaridad window</field>
-      <field name="res_model">gastos_solidaridad.gastos_solidaridad</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="esperanza_unida.categorias">
+            <field name="name">Categorías Esperanza Unida</field>
+            <field name="res_model">esperanza_unida.categoria</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="gastos_solidaridad.action_server">
-      <field name="name">GastosSolidaridad server</field>
-      <field name="model_id" ref="model_gastos_solidaridad_gastos_solidaridad"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+        <record model="ir.actions.act_window" id="esperanza_unida.productos">
+            <field name="name">Productos Esperanza Unida</field>
+            <field name="res_model">esperanza_unida.producto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="GastosSolidaridad" id="gastos_solidaridad.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="gastos_solidaridad.menu_1" parent="gastos_solidaridad.menu_root"/>
-    <menuitem name="Menu 2" id="gastos_solidaridad.menu_2" parent="gastos_solidaridad.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="gastos_solidaridad.menu_1_list" parent="gastos_solidaridad.menu_1"
-              action="gastos_solidaridad.action_window"/>
-    <menuitem name="Server to list" id="gastos_solidaridad" parent="gastos_solidaridad.menu_2"
-              action="gastos_solidaridad.action_server"/>
--->
-  </data>
+        <record model="ir.actions.act_window" id="esperanza_unida.almacenes">
+            <field name="name">Almacenes Esperanza Unida</field>
+            <field name="res_model">esperanza_unida.almacen</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Views -->
+        <record id="categoria_form_view" model="ir.ui.view">
+            <field name="name">esperanza_unida.categoria.form</field>
+            <field name="model">esperanza_unida.categoria</field>
+            <field name="arch" type="xml">
+                <form string="Categoría">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="categoria_tree_view" model="ir.ui.view">
+            <field name="name">esperanza_unida.categoria.tree</field>
+            <field name="model">esperanza_unida.categoria</field>
+            <field name="arch" type="xml">
+                <tree string="Categoría">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="producto_form_view" model="ir.ui.view">
+            <field name="name">esperanza_unida.producto.form</field>
+            <field name="model">esperanza_unida.producto</field>
+            <field name="arch" type="xml">
+                <form string="Producto">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="cantidad"/>
+                            <field name="categoria_id"/>
+                            <field name="almacen_id"/>
+                            <field name="fecha_caducidad"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="producto_tree_view" model="ir.ui.view">
+            <field name="name">esperanza_unida.producto.tree</field>
+            <field name="model">esperanza_unida.producto</field>
+            <field name="arch" type="xml">
+                <tree string="Producto">
+                    <field name="name"/>
+                    <field name="cantidad"/>
+                    <field name="categoria_id"/>
+                    <field name="almacen_id"/>
+                    <field name="fecha_caducidad"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="almacen_form_view" model="ir.ui.view">
+            <field name="name">esperanza_unida.almacen.form</field>
+            <field name="model">esperanza_unida.almacen</field>
+            <field name="arch" type="xml">
+                <form string="Almacén">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="location"/>
+                        </group>
+                        <group string="Productos">
+                            <field name="productos_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="almacen_tree_view" model="ir.ui.view">
+            <field name="name">esperanza_unida.almacen.tree</field>
+            <field name="model">esperanza_unida.almacen</field>
+            <field name="arch" type="xml">
+                <tree string="Almacén">
+                    <field name="name"/>
+                    <field name="location"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Top Menu Item -->
+        <menuitem name="Inventario Esperanza Unida" id="esperanza_unida.menu_root"/>
+        <menuitem name="Categorías" id="esperanza_unida.menu_categorias" parent="esperanza_unida.menu_root" action="esperanza_unida.categorias"/>
+        <menuitem name="Productos" id="esperanza_unida.menu_productos" parent="esperanza_unida.menu_root" action="esperanza_unida.productos"/>
+        <menuitem name="Almacenes" id="esperanza_unida.menu_almacenes" parent="esperanza_unida.menu_root" action="esperanza_unida.almacenes"/>
+        
+    </data>
 </odoo>

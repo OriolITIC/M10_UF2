@@ -1,35 +1,22 @@
-# -*- coding: utf-8 -*-
+# inventario_solidaridad/__manifest__.py
 {
-    'name': "InventarioSolidaridad",
-
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
+    'name': "Gestión de Inventario Esperanza Unida",
+    'summary': "Gestiona los productos almacenados de Esperanza Unida.",
     'description': """
-        Long description of module's purpose
+        Este módulo permite gestionar los productos almacenados en diversos almacenes de Esperanza Unida,
+        clasificados por categorías como ropa, alimentos y albergue.
     """,
-
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    'category': 'Uncategorized',
+    'author': "Esperanza Unida",
+    'website': "http://www.esperanzaunida.org",
+    'category': 'Inventory',
     'version': '0.1',
-
-    # any module necessary for this one to work correctly
     'depends': ['base'],
-
-    # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
-        'views/templates.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
+    'demo': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
 }
