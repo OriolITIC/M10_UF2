@@ -1,3 +1,4 @@
+
 <odoo>
   <data>
     <!-- explicit list view definition -->
@@ -16,43 +17,45 @@
       </field>
     </record>
 
- <record model="ir.ui.view" id="view_custom_crm_pipeline_form">
-      <field name="name">custom.crm.pipeline.form</field>
-      <field name="model">custom.crm.pipeline</field>
-      <field name="arch" type="xml">
-        <form string="Crear Nueva Oportunidad">
-          <sheet>
-            <group>
-              <field name="name" string="Título"/>
-              <field name="cliente_id" string="Cliente"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
-
-    <!-- Vista de árbol para custom.crm.pipeline -->
-    <record model="ir.ui.view" id="view_custom_crm_pipeline_tree">
-      <field name="name">custom.crm.pipeline.tree</field>
-      <field name="model">custom.crm.pipeline</field>
+     <record model="ir.ui.view" id="crmsolidaridad.donantes_list">
+      <field name="name">Custom CRM Donante Tree View</field>
+      <field name="model">donaciones.crm.donante</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="cliente_id"/>
+        
+          <field name="mayor_que_18"/>          
+        
         </tree>
       </field>
     </record>
 
-    <!-- Acción para custom.crm.pipeline -->
-    <record model="ir.actions.act_window" id="action_custom_crm_pipeline">
-      <field name="name">Oportunidades</field>
-      <field name="res_model">custom.crm.pipeline</field>
+        <record model="ir.ui.view" id="crmsolidaridad.voluntarios_list">
+      <field name="name">Custom CRM Voluntario Tree View</field>
+      <field name="model">voluntarios.crm.volunteer</field>
+      <field name="arch" type="xml">
+        <tree>
+          
+          <field name="mayor_que_18"/>     
+          <field name="last_volunteer_date"/>     
+        
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="crmsolidaridad.volunteer_action_window">
+      <field name="name">Voluntarios</field>
+      <field name="res_model">voluntarios.crm.volunteer</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-   
+    <record model="ir.actions.act_window" id="crmsolidaridad.donante_action_window">
+      <field name="name">Donantes</field>
+      <field name="res_model">donaciones.crm.donante</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
-    <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="crmsolidaridad.action_window">
       <field name="name">Clientes</field>
@@ -88,27 +91,34 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Ventas" id="crmsolidaridad.menu_1" parent="crmsolidaridad.menu_root"/>
-    <menuitem name="Clientes" id="crmsolidaridad.menu_2" parent="crmsolidaridad.menu_root"
+    
+    <menuitem name="Contactos" id="crmsolidaridad.contactos" parent="crmsolidaridad.menu_root"
     action="crmsolidaridad.action_window"
        />
-    <menuitem name="Reuniones" id="crmsolidaridad.menu_3" parent="crmsolidaridad.menu_root"/>
-     <menuitem name="Informes" id="crmsolidaridad.menu_4" parent="crmsolidaridad.menu_root"/>
-      <menuitem name="Oportunidades" id="menu_custom_crm_pipeline" parent="crmsolidaridad.menu_root"
-      action="action_custom_crm_pipeline"/>
+    <menuitem name="Donaciones" id="crmsolidaridad.donaciones" parent="crmsolidaridad.menu_root"/>
+     
+   <menuitem name="Campañas" id="crmsolidaridad.menu_campañas" parent="crmsolidaridad.menu_root"/>
+     
 
-     <!-- <menuitem name="Oportunidades" id="menu_custom_crm_pipeline" parent="menu_crmsolidaridad_root"
-      action="action_custom_crm_pipeline"/>-->
-    <!-- actions -->
+               <menuitem name="Voluntarios" id="crmsolidaridad.voluntarios_menu" parent="crmsolidaridad.contactos"
+              action="crmsolidaridad.volunteer_action_window"/>
+               <menuitem name="Donantes" id="crmsolidaridad.donantes_menu" parent="crmsolidaridad.contactos"
+              action="crmsolidaridad.donante_action_window"/>
+           
+       <menuitem name="Educación" id="menu_campaña_educacion" parent="crmsolidaridad.menu_campañas"
+              />
 
-    <menuitem name="List" id="crmsolidaridad.menu_1_list" parent="crmsolidaridad.menu_1"
-              action="crmsolidaridad.action_window"/>
-    <!--<menuitem name="Server to list" id="crmsolidaridad.menu_2_list" parent="crmsolidaridad.menu_2"
-              action="crmsolidaridad.action_server"/>-->
-    <menuitem name="Server to list" id="crmsolidaridad.menu_3_list" parent="crmsolidaridad.menu_3"
-              action="crmsolidaridad.action_server"/>
-    <menuitem name="Server to list" id="crmsolidaridad.menu_4_list" parent="crmsolidaridad.menu_4"
-              action="crmsolidaridad.action_server"/>
+              <menuitem name="Comedor social" id="menu_campaña_comedor_social" parent="crmsolidaridad.menu_campañas"
+              />
+
+                 <menuitem name="Campaña ropa" id="menu_campaña_ropa" parent="crmsolidaridad.menu_campañas"
+              />
+
+
+                 <menuitem name="Campaña alimentos" id="menu_campaña_alimentos" parent="crmsolidaridad.menu_campañas"
+              />
+
+   
 
 
           <record model="ir.ui.view" id="custom_crm_client_form_view">
@@ -126,7 +136,8 @@
           </sheet>
         </form>
       </field>
-    </record>     
+    </record>   
+
 
   </data>
 </odoo>
