@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <odoo>
    <!-- Vista tree para email.marketing.empresa -->
    <record id="view_empresa_tree" model="ir.ui.view">
@@ -318,6 +319,11 @@
 
 
 
+
+
+
+
+
    <!-- Submenús para Lista de correos -->
    <menuitem id="menu_envios" name="Lista Correos" parent="menu_email_marketing" action="action_envios"/>
    <menuitem id="menu_ver_email" name="Ver correos enviados" parent="menu_envios" action="action_envios"/>
@@ -327,6 +333,133 @@
 
    <!-- Submenú para Estadísticas -->
    <menuitem id="menu_statistics" name="Estadísticas" parent="menu_email_marketing" action="action_statistics"/>
+=======
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista tree para email.marketing.empresa -->
+    <record id="view_empresa_tree" model="ir.ui.view">
+        <field name="name">email.marketing.empresa.tree</field>
+        <field name="model">email.marketing.empresa</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="contact_type"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Vista form para email.marketing.empresa -->
+    <record id="view_empresa_form" model="ir.ui.view">
+        <field name="name">email.marketing.empresa.form</field>
+        <field name="model">email.marketing.empresa</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="contact_type"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Vista tree para email.marketing.enviado -->
+    <record id="view_enviado_tree" model="ir.ui.view">
+        <field name="name">email.marketing.enviado.tree</field>
+        <field name="model">email.marketing.enviado</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="destinatarios_ids" widget="many2many_tags"/>
+                <field name="asunto"/>
+                <field name="fecha_envio"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Vista form para email.marketing.enviado -->
+    <record id="view_enviado_form" model="ir.ui.view">
+        <field name="name">email.marketing.enviado.form</field>
+        <field name="model">email.marketing.enviado</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="destinatarios_ids" widget="many2many" string="Destinatarios"/>
+                        <field name="asunto"/>
+                        <field name="fecha_envio"/>
+                    </group>
+                    <group>
+                        <field name="mensaje"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Acciones y menús -->
+    <!-- Acción para abrir el formulario de creación de contactos -->
+    <record id="action_create_contact" model="ir.actions.act_window">
+        <field name="name">Crear Contacto</field>
+        <field name="res_model">email.marketing.empresa</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_empresa_form"/>
+        <field name="target">current</field>
+    </record>
+
+
+    <!-- Acción para abrir el formulario de envío de correos -->
+    <record id="action_create_email" model="ir.actions.act_window">
+        <field name="name">Enviar Correo</field>
+        <field name="res_model">email.marketing.enviado</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_enviado_form"/>
+        <field name="target">current</field>
+    </record>
+
+
+    <!-- Acción para abrir la lista de contactos -->
+    <record id="action_empresas" model="ir.actions.act_window">
+        <field name="name">Contactos</field>
+        <field name="res_model">email.marketing.empresa</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Acción para abrir la lista de correos enviados -->
+    <record id="action_envios" model="ir.actions.act_window">
+        <field name="name">Lista Correos</field>
+        <field name="res_model">email.marketing.enviado</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Menú principal -->
+    <menuitem id="menu_email_marketing" name="Email Marketing" />
+
+
+    <!-- Submenús para Contactos -->
+    <menuitem id="menu_empresas" name="Contactos" parent="menu_email_marketing" action="action_empresas"/>
+    <menuitem id="menu_ver_empresas" name="Ver contactos" parent="menu_empresas" action="action_empresas"/>
+
+
+    <!-- Submenús para Lista de correos -->
+    <menuitem id="menu_envios" name="Lista Correos" parent="menu_email_marketing" action="action_envios"/>
+    <menuitem id="menu_ver_email" name="Ver correos enviados" parent="menu_envios" action="action_envios"/>
+    <menuitem id="menu_campaña" name="Campañas" parent="menu_email_marketing" action="action_envios"/>
+>>>>>>> 394d54f4a5bd6f3cce4e336ef33c51595accf2c5
 </odoo>
 
 

@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_inventario_solidaridad_inventario_solidaridad,inventario_solidaridad.inventario_solidaridad,model_inventario_solidaridad_inventario_solidaridad,base.group_user,1,1,1,1
+access_inventario_solidaridad_categoria,inventario_solidaridad.categoria,model_esperanza_unida_categoria,base.group_user,1,1,1,1
+access_inventario_solidaridad_producto,inventario_solidaridad.producto,model_esperanza_unida_producto,base.group_user,1,1,1,1
+access_inventario_solidaridad_almacen,inventario_solidaridad.almacen,model_esperanza_unida_almacen,base.group_user,1,1,1,1
