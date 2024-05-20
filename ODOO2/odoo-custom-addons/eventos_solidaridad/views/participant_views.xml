@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+    <record model="ir.actions.act_window" id="eventos_solidaridad.participants">
+        <field name="name">Participantes eventos Esperanza Solidarida</field>
+        <field name="res_model">eventos_solidaridad.participant</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_participant_form" model="ir.ui.view">
+      <field name="name">eventos_solidaridad.participant.form</field>
+      <field name="model">eventos_solidaridad.participant</field>
+      <field name="arch" type="xml">
+          <form string="Event Participant">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="email"/>
+                      <field name="phone"/>
+                      <field name="event_id"/>
+                  </group>
+                  <field name="survey_ids">
+                      <tree string="Completed Surveys">
+                          <field name="name"/>
+                          <field name="date_sent"/>
+                      </tree>
+                  </field>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record id="view_participant_tree" model="ir.ui.view">
+        <field name="name">eventos_solidaridad.participant.tree</field>
+        <field name="model">eventos_solidaridad.participant</field>
+        <field name="arch" type="xml">
+            <tree string="Participants">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="event_id"/>
+            </tree>
+        </field>
+    </record>
+  </data>
+</odoo>

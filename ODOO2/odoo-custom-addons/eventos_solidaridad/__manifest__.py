@@ -25,7 +25,11 @@
 
     # siempre cargado
     'data': [
-        'views/views.xml',
+        'views/event_views.xml',
+        'views/participant_views.xml',
+        'views/task_views.xml',
+        'views/survey_views.xml',
+        'views/menu_views.xml',
     ],
     # solo cargado en modo de demostración
     'demo': [

@@ -1,0 +1,41 @@
+<odoo>
+  <data>
+    <record model="ir.actions.act_window" id="eventos_solidaridad.tasks">
+        <field name="name">Tareas eventos Esperanza Solidarida</field>
+        <field name="res_model">eventos_solidaridad.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_task_form" model="ir.ui.view">
+      <field name="name">eventos_solidaridad.task.form</field>
+      <field name="model">eventos_solidaridad.task</field>
+      <field name="arch" type="xml">
+          <form string="Event Task">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="description"/>
+                      <field name="deadline"/>
+                      <field name="responsible_id"/>
+                      <field name="event_id"/>
+                      <field name="state"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record id="view_task_tree" model="ir.ui.view">
+        <field name="name">eventos_solidaridad.task.tree</field>
+        <field name="model">eventos_solidaridad.task</field>
+        <field name="arch" type="xml">
+            <tree string="Tasks">
+                <field name="name"/>
+                <field name="deadline"/>
+                <field name="responsible_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+  </data>
+</odoo>
