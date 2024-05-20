@@ -22,7 +22,11 @@
     # always loaded
     'data': [
         #'security/ir.model.access.csv',
-        'views/views.xml',
+        'views/impact_views.xml',
+        'views/beneficiary_views.xml',
+        'views/indicator_views.xml',
+        'views/result_views.xml',
+        'views/menu_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

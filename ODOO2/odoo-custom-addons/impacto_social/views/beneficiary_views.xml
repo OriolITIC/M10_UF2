@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="impacto_social_beneficiary_form_view">
+      <field name="name">Beneficiario del Impacto Formulario</field>
+      <field name="model">impacto_social.beneficiary</field>
+      <field name="arch" type="xml">
+        <form string="Beneficiario del Impacto">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="email"/>
+              <field name="phone"/>
+              <field name="impact_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_open_beneficiary_list">
+      <field name="name">Lista de beneficiarios del Impacto</field>
+      <field name="res_model">impacto_social.beneficiary</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>
