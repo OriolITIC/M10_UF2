@@ -14,7 +14,9 @@
     'version': '0.1',
     'depends': ['base', 'voluntarios_solidaridad'],  
     'data': [
-        'views/views.xml'
+        'views/message_views.xml',
+        'views/advertisement_views.xml',
+        'views/menu_views.xml'
     ],
     'demo': [
         

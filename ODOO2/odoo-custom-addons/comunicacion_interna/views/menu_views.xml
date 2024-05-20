@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <menuitem name="ComunicacionInterna" id="comunicacion_interna.menu_root"/>
+
+        <menuitem name="Mensajes" id="comunicacion_interna.menu_1" parent="comunicacion_interna.menu_root"/>
+        <menuitem name="Anuncios" id="comunicacion_interna.menu_3" parent="comunicacion_interna.menu_root"/>
+  
+        <menuitem name="Ver mensajes" id="comunicacion_interna.menu_1_list" parent="comunicacion_interna.menu_1"
+            action="comunicacion_interna.messages"/>
+        <menuitem name="Ver anuncios" id="comunicacion_interna.menu_3_list" parent="comunicacion_interna.menu_3"
+            action="comunicacion_interna.advertisements"/>
+    </data>
+</odoo>

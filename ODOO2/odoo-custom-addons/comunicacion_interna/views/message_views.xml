@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="comunicacion_interna.messages">
+            <field name="name">Mensajes Internos Esperanza Solidarida</field>
+            <field name="res_model">comunicacion_interna.message</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="message_form_view" model="ir.ui.view">
+            <field name="name">comunicacion_interna.message.form</field>
+            <field name="model">comunicacion_interna.message</field>
+            <field name="arch" type="xml">
+                <form string="Mensajes Internos">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="body"/>
+                            <field name="author_id"/>
+                            <field name="recipient_ids" widget="many2many_tags"/>
+                            <field name="department_ids" widget="many2many_tags"/>
+                            <field name="advertisement_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
