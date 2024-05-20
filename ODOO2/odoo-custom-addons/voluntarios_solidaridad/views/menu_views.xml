@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <menuitem name="VoluntariosSolidaridad" id="voluntarios_solidaridad.menu_root"/>
+
+        <menuitem name="Voluntarios" id="voluntarios_solidaridad.menu_1" parent="voluntarios_solidaridad.menu_root"/>
+        <menuitem name="Actividades" id="voluntarios_solidaridad.menu_2" parent="voluntarios_solidaridad.menu_root"/>
+        <menuitem name="Departamentos" id="voluntarios_solidaridad.menu_3" parent="voluntarios_solidaridad.menu_root"/>
+        <menuitem name="Estadisticas" id="voluntarios_solidaridad.menu_4" parent="voluntarios_solidaridad.menu_root" 
+            action="voluntarios_solidaridad.datos_grafico"/>
+        
+        <menuitem name="Ver Voluntarios" id="voluntarios_solidaridad.menu_1_list" parent="voluntarios_solidaridad.menu_1"
+            action="voluntarios_solidaridad.volunteers"/>
+        <menuitem name="Ver Actividades" id="voluntarios_solidaridad.menu_2_list" parent="voluntarios_solidaridad.menu_2"
+            action="voluntarios_solidaridad.activities"/>
+        <menuitem name="Ver Departamentos" id="voluntarios_solidaridad.menu_3_list" parent="voluntarios_solidaridad.menu_3"
+            action="voluntarios_solidaridad.departments"/>
+        <menuitem name="Gráfico" id="voluntarios_solidaridad.menu_grafico" parent="voluntarios_solidaridad.menu_4" 
+            action="voluntarios_solidaridad.datos_grafico"/>
+    </data>
+</odoo>

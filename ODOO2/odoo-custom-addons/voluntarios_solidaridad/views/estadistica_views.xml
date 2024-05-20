@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="voluntarios_solidaridad.datos_grafico">
+            <field name="name">Gráfico</field>
+            <field name="res_model">voluntarios_solidaridad.estadistica</field>
+            <field name="view_mode">graph</field>
+        </record>
+
+        <record id="datos_grafico_graph_view" model="ir.ui.view">
+            <field name="name">voluntarios_solidaridad.datos_grafico.graph</field>
+            <field name="model">voluntarios_solidaridad.estadistica</field>
+            <field name="arch" type="xml">
+                <graph string="Gráfico de Voluntarios por Departamento" type="bar">
+                    <field name="volunteer_count" string="Número de Voluntarios"/>
+                    <field name="department_id" string="Departamento"/>
+                </graph>
+            </field>
+        </record>
+    </data>
+</odoo>

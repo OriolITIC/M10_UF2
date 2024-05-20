@@ -12,7 +12,11 @@
     'version': '0.1',
     'depends': ['base'],
     'data': [
-        'views/views.xml'
+        'views/activity_views.xml',
+        'views/department_views.xml',
+        'views/estadistica_views.xml',
+        'views/volunteer_views.xml',
+        'views/menu_views.xml'     
     ],
     'demo': [
         'demo/demo.xml',
