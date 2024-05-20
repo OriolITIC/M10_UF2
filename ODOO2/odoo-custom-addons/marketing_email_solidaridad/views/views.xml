@@ -1,73 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  
-<!-- Vista tree para accounting.donante -->
-   <record id="view_donante_tree" model="ir.ui.view">
-       <field name="name">accounting.donante.tree</field>
-       <field name="model">accounting.donante</field>
-       <field name="arch" type="xml">
-           <tree>
-               <field name="name"/>
-               <field name="fecha_donacion"/>
-               <field name="tipo_donacion"/>
-               <field name="cantidad_dinero"/>
-               <field name="uso_especifico"/>
-           </tree>
-       </field>
-   </record>
+    <!-- Vista tree para accounting.donante -->
+    <record id="view_donante_tree" model="ir.ui.view">
+        <field name="name">accounting.donante.tree</field>
+        <field name="model">accounting.donante</field>
+        <field name="arch" type="xml">
+            <tree string="Donantes">
+                <field name="name" string="Nombre del Donante"/>
+                <field name="email" string="Correo Electrónico"/>
+                <field name="phone" string="Teléfono"/>
+                <field name="fecha_donacion" string="Fecha de la Donación"/>
+                <field name="tipo_donacion" string="Tipo de Donación"/>
+                <field name="cantidad_dinero" string="Cantidad de Dinero"/>
+                <field name="uso_especifico" string="Uso Específico"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista form para accounting.donante -->
+    <record id="view_donante_form" model="ir.ui.view">
+        <field name="name">accounting.donante.form</field>
+        <field name="model">accounting.donante</field>
+        <field name="arch" type="xml">
+            <form string="Donante">
+                <sheet>
+                    <group>
+                        <field name="name" string="Nombre del Donante"/>
+                        <field name="email" string="Correo Electrónico"/>
+                        <field name="phone" string="Teléfono"/>
+                    </group>
+                    <group>
+                        <field name="fecha_donacion" string="Fecha de la Donación"/>
+                        <field name="tipo_donacion" string="Tipo de Donación"/>
+                        <field name="cantidad_dinero" string="Cantidad de Dinero" attrs="{'invisible': [('tipo_donacion', '!=', 'dinero')]}"/>
+                        <field name="descripcion_donacion" string="Descripción de la Donación"/>
+                        <field name="uso_especifico" string="Uso Específico"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<record id="view_expense_tree" model="ir.ui.view">
+        <field name="name">account.expense.tree</field>
+        <field name="model">account.expense</field>
+        <field name="arch" type="xml">
+            <tree string="Gastos">
+                <field name="date" string="Fecha del Gasto"/>
+                <field name="amount" string="Monto"/>
+                <field name="description" string="Descripción"/>
+                <field name="project_id" string="Proyecto"/> 
+                <field name="currency_id" string="Moneda"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista form para account.expense -->
+    <record id="view_expense_form" model="ir.ui.view">
+        <field name="name">account.expense.form</field>
+        <field name="model">account.expense</field>
+        <field name="arch" type="xml">
+            <form string="Gasto">
+                <sheet>
+                    <group>
+                        <field name="date" string="Fecha del Gasto"/>
+                        <field name="amount" string="Monto"/>
+                        <field name="description" string="Descripción"/>
+                    </group>
+                    <group>
+                        <field name="project_id" string="Proyecto"/>
+                        <field name="currency_id" string="Moneda"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+ <!-- Vista tree para project.project -->
+    <record id="view_project_tree" model="ir.ui.view">
+        <field name="name">project.project.tree</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <tree string="Proyectos">
+                <field name="name" string="Nombre del Proyecto"/>
+                <field name="start_date" string="Fecha de Inicio"/>
+                <field name="end_date" string="Fecha de Fin"/>
+                <field name="budget" string="Presupuesto"/>
+            </tree>
+        </field>
+    </record>
 
 
-   <!-- Vista form para accounting.donante -->
-   <record id="view_donante_form" model="ir.ui.view">
-       <field name="name">accounting.donante.form</field>
-       <field name="model">accounting.donante</field>
-       <field name="arch" type="xml">
-           <form>
-               <sheet>
-                   <group>
-                       <field name="name"/>
-                       <field name="fecha_donacion"/>
-                   </group>
-                   <group>
-                       <field name="tipo_donacion"/>
-                       <field name="cantidad_dinero" attrs="{'invisible': [('tipo_donacion', '!=', 'dinero')]}"/>
-                       <field name="descripcion_donacion"/>
-                       <field name="uso_especifico"/>
-                   </group>
-               </sheet>
-           </form>
-       </field>
-   </record>
+    <!-- Vista form para project.project -->
+    <record id="view_project_form" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <form string="Proyecto">
+                <sheet>
+                    <group>
+                        <field name="name" string="Nombre del Proyecto"/>
+                        <field name="start_date" string="Fecha de Inicio"/>
+                        <field name="end_date" string="Fecha de Fin"/>
+                        <field name="budget" string="Presupuesto"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
 
 
 
-   <!-- Acciones y menús -->
-<!-- Acción para abrir el formulario de creación de donantes -->
-   <record id="action_create_donante" model="ir.actions.act_window">
-       <field name="name">Crear Donante</field>
-       <field name="res_model">accounting.donante</field>
-       <field name="view_mode">form</field>
-       <field name="view_id" ref="view_donante_form"/>
-       <field name="target">current</field>
-   </record>
+   <!-- Acción para abrir el formulario de creación de proyecto -->
+    <record id="action_create_project" model="ir.actions.act_window">
+        <field name="name">Crear Proyecto</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_project_form"/>
+        <field name="target">current</field>
+    </record>
 
 
-   <!-- Acción para abrir la lista de donantes -->
-   <record id="action_donantes" model="ir.actions.act_window">
-       <field name="name">Lista de Donantes</field>
-       <field name="res_model">accounting.donante</field>
-       <field name="view_mode">tree,form</field>
-   </record>
-
-
+    <!-- Acción para abrir la lista de proyectos -->
+    <record id="action_projects" model="ir.actions.act_window">
+        <field name="name">Lista de Proyectos</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
 
 
 
+   <!-- Acción para abrir el formulario de creación de gastos -->
+    <record id="action_create_expense" model="ir.actions.act_window">
+        <field name="name">Crear Gasto</field>
+        <field name="res_model">account.expense</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_expense_form"/>
+        <field name="target">current</field>
+    </record>
+
+    <!-- Acción para abrir la lista de gastos -->
+    <record id="action_expenses" model="ir.actions.act_window">
+        <field name="name">Lista de Gastos</field>
+        <field name="res_model">account.expense</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
 
-   <!-- Menú principal -->
+    <!-- Acción para abrir el formulario de creación de donantes -->
+    <record id="action_create_donante" model="ir.actions.act_window">
+        <field name="name">Crear Donante</field>
+        <field name="res_model">accounting.donante</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_donante_form"/>
+        <field name="target">current</field>
+    </record>
+
+    <!-- Acción para abrir la lista de donantes -->
+    <record id="action_donantes" model="ir.actions.act_window">
+        <field name="name">Lista de Donantes</field>
+        <field name="res_model">accounting.donante</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+ <!-- Menú principal -->
    <menuitem id="menu_email_marketing" name="Contabilidad" />
 
 
@@ -80,6 +177,17 @@
 
 
 
+
+<!-- Submenús para Gastos -->
+    <menuitem id="menu_expenses" name="Gastos" parent="menu_email_marketing" action="action_expenses"/>
+    <menuitem id="menu_view_expenses" name="Ver Gastos" parent="menu_expenses" action="action_expenses"/>
+
+
+
+<!-- Submenús para pruectos -->
+  
+    <menuitem id="menu_create_project" name="Crear Proyecto" parent="menu_email_marketing" action="action_create_project"/>
+    <menuitem id="menu_view_projects" name="Ver Proyectos" parent="menu_create_project" action="action_projects"/>
 
 
 </odoo>

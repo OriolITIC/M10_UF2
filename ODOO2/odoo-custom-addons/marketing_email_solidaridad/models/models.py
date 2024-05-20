@@ -147,11 +147,15 @@ class EmailStatistics(models.Model):
 
 
 
+
+
 class Donante(models.Model):
     _name = 'accounting.donante'
     _description = 'Registro de Donantes'
 
     name = fields.Char(string='Nombre del Donante', default='Anónimo')
+    email = fields.Char(string='Correo Electrónico')
+    phone = fields.Char(string='Teléfono')
     fecha_donacion = fields.Date(string='Fecha de la Donación', required=True, default=fields.Date.today)
     tipo_donacion = fields.Selection([
         ('dinero', 'Dinero'),
@@ -162,3 +166,23 @@ class Donante(models.Model):
     cantidad_dinero = fields.Float(string='Cantidad de Dinero')
     descripcion_donacion = fields.Text(string='Descripción de la Donación')
     uso_especifico = fields.Char(string='Uso Específico')
+
+class Expense(models.Model):
+ _name = 'account.expense'
+ _description = 'Gasto'
+
+ date = fields.Date(string='Fecha del Gasto', default=fields.Date.today, required=True)
+ amount = fields.Float(string='Monto', required=True)
+ description = fields.Text(string='Descripción')
+ project_id = fields.Many2one('project.project', string='Proyecto')
+ currency_id = fields.Many2one('res.currency', string='Moneda', required=True)
+
+
+class Project(models.Model):
+ _name = 'project.project'
+ _description = 'Proyecto'
+
+ name = fields.Char(string='Nombre del Proyecto', required=True)
+ start_date = fields.Date(string='Fecha de Inicio', required=True)
+ end_date = fields.Date(string='Fecha de Fin')
+ budget = fields.Float(string='Presupuesto')
