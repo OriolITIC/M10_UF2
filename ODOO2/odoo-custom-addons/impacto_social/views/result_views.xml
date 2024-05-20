@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="impacto_social_result_form_view">
+      <field name="name">Resultado del Impacto Formulario</field>
+      <field name="model">impacto_social.result</field>
+      <field name="arch" type="xml">
+        <form string="Resultado del Impacto">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="date"/>
+              <field name="value"/>
+              <field name="indicator_id"/>
+              <field name="impact_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_open_result_graph">
+      <field name="name">Gráfico de resultados del Impacto</field>
+      <field name="res_model">impacto_social.result</field>
+      <field name="view_mode">graph</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Haz clic en el botón "Crear" para agregar un nuevo resultado.
+        </p>
+      </field>
+    </record>
+  </data>
+</odoo>

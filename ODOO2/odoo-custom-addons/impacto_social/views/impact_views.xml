@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="impacto_social.form">
+      <field name="name">ImpactoSocial form</field>
+      <field name="model">impacto_social.impact</field>
+      <field name="arch" type="xml">
+        <form string="Impacto Social">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="project_id"/>
+              <field name="indicator_ids" widget="many2many_tags"/>
+              <field name="result_ids" widget="many2many_tags"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_open_impact_list">
+      <field name="name">Lista de impactos</field>
+      <field name="res_model">impacto_social.impact</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>
