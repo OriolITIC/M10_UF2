@@ -1,132 +1,98 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-
-    <record model="ir.ui.view" id="crmsolidaridad.list">
-      <field name="name">Custom CRM Client Tree View</field>
-      <field name="model">custom.crm.client</field>
+    <!-- Lista de Contactos -->
+    <record model="ir.ui.view" id="crmsolidaridad.contactos_tree">
+      <field name="name">Vista de Lista de Contactos</field>
+      <field name="model">crmsolidaridad.contactos</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="email"/>
-          <field name="phone"/>
-          <field name="client_type"/>
+          <field name="telefono"/>
+          <field name="correo"/>
+          <field name="tipo_contacto"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista de Lista de Donantes -->
+    <record model="ir.ui.view" id="crmsolidaridad.donantes_tree">
+      <field name="name">Vista de Lista de Donantes</field>
+      <field name="model">crmsolidaridad.donantes</field>
+      <field name="arch" type="xml">
+        <tree>
         
+          <field name="mayor_de_edad"/>
+          <field name="fecha_ultima_donacion"/>
+            <field name="contacto_id"/>
         </tree>
       </field>
     </record>
 
- <record model="ir.ui.view" id="view_custom_crm_pipeline_form">
-      <field name="name">custom.crm.pipeline.form</field>
-      <field name="model">custom.crm.pipeline</field>
-      <field name="arch" type="xml">
-        <form string="Crear Nueva Oportunidad">
-          <sheet>
-            <group>
-              <field name="name" string="Título"/>
-              <field name="cliente_id" string="Cliente"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
-
-    <!-- Vista de árbol para custom.crm.pipeline -->
-    <record model="ir.ui.view" id="view_custom_crm_pipeline_tree">
-      <field name="name">custom.crm.pipeline.tree</field>
-      <field name="model">custom.crm.pipeline</field>
+    <!-- Vista de Lista de Donaciones -->
+    <record model="ir.ui.view" id="crmsolidaridad.donaciones_tree">
+      <field name="name">Vista de Lista de Donaciones</field>
+      <field name="model">crmsolidaridad.donaciones</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="cliente_id"/>
+          
+          <field name="que_dona"/>
+          <field name="cantidad"/>
+          <field name="fecha_donacion"/>
+          <field name="donante_id" />
         </tree>
       </field>
     </record>
 
-    <!-- Acción para custom.crm.pipeline -->
-    <record model="ir.actions.act_window" id="action_custom_crm_pipeline">
-      <field name="name">Oportunidades</field>
-      <field name="res_model">custom.crm.pipeline</field>
+    <!-- Acción de ventana para Contactos -->
+    <record model="ir.actions.act_window" id="crmsolidaridad.contactos_action_window">
+      <field name="name">Contactos</field>
+      <field name="res_model">crmsolidaridad.contactos</field>
       <field name="view_mode">tree,form</field>
+       <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Haga clic para crear una nueva donación.
+        </p>
+        </field>
     </record>
 
-   
-
-    <!-- actions opening views on models -->
-
-    <record model="ir.actions.act_window" id="crmsolidaridad.action_window">
-      <field name="name">Clientes</field>
-      <field name="res_model">custom.crm.client</field>
+    <!-- Acción de ventana para Donantes -->
+    <record model="ir.actions.act_window" id="crmsolidaridad.action_donantes_tree">
+      <field name="name">Donantes</field>
+      <field name="res_model">crmsolidaridad.donantes</field>
       <field name="view_mode">tree,form</field>
-    </record>
-
-
-
-
-
-
-
-    <!-- server action to the one above -->
-
-    <record model="ir.actions.server" id="crmsolidaridad.action_server">
-      <field name="name">CRMSolidaridad server</field>
-      <field name="model_id" ref="model_crmsolidaridad_crmsolidaridad"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Haga clic para crear un nuevo donante.
+        </p>
       </field>
     </record>
 
-
-    <!-- Top menu item -->
-
-    <menuitem name="CRMSolidaridad" id="crmsolidaridad.menu_root"/>
-
-    <!-- menu categories -->
-
-    <menuitem name="Ventas" id="crmsolidaridad.menu_1" parent="crmsolidaridad.menu_root"/>
-    <menuitem name="Clientes" id="crmsolidaridad.menu_2" parent="crmsolidaridad.menu_root"
-    action="crmsolidaridad.action_window"
-       />
-    <menuitem name="Reuniones" id="crmsolidaridad.menu_3" parent="crmsolidaridad.menu_root"/>
-     <menuitem name="Informes" id="crmsolidaridad.menu_4" parent="crmsolidaridad.menu_root"/>
-      <menuitem name="Oportunidades" id="menu_custom_crm_pipeline" parent="crmsolidaridad.menu_root"
-      action="action_custom_crm_pipeline"/>
-
-     <!-- <menuitem name="Oportunidades" id="menu_custom_crm_pipeline" parent="menu_crmsolidaridad_root"
-      action="action_custom_crm_pipeline"/>-->
-    <!-- actions -->
-
-    <menuitem name="List" id="crmsolidaridad.menu_1_list" parent="crmsolidaridad.menu_1"
-              action="crmsolidaridad.action_window"/>
-    <!--<menuitem name="Server to list" id="crmsolidaridad.menu_2_list" parent="crmsolidaridad.menu_2"
-              action="crmsolidaridad.action_server"/>-->
-    <menuitem name="Server to list" id="crmsolidaridad.menu_3_list" parent="crmsolidaridad.menu_3"
-              action="crmsolidaridad.action_server"/>
-    <menuitem name="Server to list" id="crmsolidaridad.menu_4_list" parent="crmsolidaridad.menu_4"
-              action="crmsolidaridad.action_server"/>
-
-
-          <record model="ir.ui.view" id="custom_crm_client_form_view">
-      <field name="name">custom.crm.client.form</field>
-      <field name="model">custom.crm.client</field>
-      <field name="arch" type="xml">
-        <form string="Custom CRM Client">
-          <sheet>
-            <group>
-              <field name="name"/>
-              <field name="email"/>
-              <field name="phone"/>
-              <field name="client_type"/>
-            </group>
-          </sheet>
-        </form>
+    <!-- Acción de ventana para Donaciones -->
+    <record model="ir.actions.act_window" id="crmsolidaridad.action_donaciones_tree">
+      <field name="name">Donaciones</field>
+      <field name="res_model">crmsolidaridad.donaciones</field>
+      <field name="view_mode">tree</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Haga clic para crear una nueva donación.
+        </p>
       </field>
-    </record>     
+    </record>
 
+    <!-- Menú principal -->
+    <menuitem name="CrmSolidario" id="crmsolidaridad.menu_root" />
+
+     <menuitem name="Ver Contactos" id="crmsolidaridad.contactos_menu" parent="crmsolidaridad.menu_root" action="crmsolidaridad.contactos_action_window"/>
+    <menuitem name="Ver Donantes" id="crmsolidaridad.donantes_menu" parent="crmsolidaridad.menu_root" />
+    
+     <menuitem name="Ver Donaciones" id="crmsolidaridad.donaciones_menu" parent="crmsolidaridad.menu_root" />
+  
+
+    <!-- Submenús -->
+    
+    <menuitem name="Donantes" id="mi_modulo_donantes_menu_list" parent="crmsolidaridad.donantes_menu" action="crmsolidaridad.action_donantes_tree"/>
+    <menuitem name="Donaciones" id="mi_modulo_donaciones_menu_list" parent="crmsolidaridad_modulo.donaciones_menu" action="crmsolidaridad.action_donaciones_tree"/>
+  
+  
   </data>
 </odoo>
