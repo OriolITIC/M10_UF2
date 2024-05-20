@@ -79,6 +79,62 @@ Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria en 
 ![Módulo de gestión del impacto social para Esperanza Solidaria](screenshots/impacto_social.png)
 
 
-Con este módulo, Esperanza Solidaria puede mejorar su capacidad para medir, gestionar y comunicar el impacto social de sus acciones, lo que le permite avanzar hacia sus objetivos de manera más efectiva y transparente.
+Con este módulo, Esperanza Solidaria puede mejorar su capacidad para medir, gestionar y comunicar el impacto social de sus acciones, lo que le permite avanzar hacia sus objetivos de manera más efectiva y transparente.<br><br><br><br>
+
+
+# Módulo Comunicación Interna
+
+Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria en la gestión de voluntarios y departamentos, facilitando el seguimiento de las actividades, estadísticas y la asignación de voluntarios a diferentes áreas de interés.
+
+## Modelos
+
+### Mensajes Internos
+- **Nombre**: Asunto del mensaje.
+- **Cuerpo**: Cuerpo del mensaje.
+- **Autor**: Voluntario que envía el mensaje.
+- **Destinatarios**: Voluntarios destinatarios del mensaje.
+- **Departamentos**: Departamentos a los que se envía el mensaje.
+- **Anuncios**: Anuncios relacionados con el mensaje.<br><br>
+
+### Anuncios Internos
+- **Nombre**: Nombre del anuncio.
+- **Autor**: Voluntario que crea el anuncio.
+- **Departamento**: Departamento al que pertenece el anuncio.
+- **Título**: Título del anuncio.
+- **Cuerpo**: Cuerpo del anuncio.
+- **Documentos adjuntos**: Archivos adjuntos al anuncio.
+- **Destacado**: Indica si el anuncio es destacado.
+- **Fecha de publicación**: Fecha de publicación del anuncio.<br><br>
+
+## Uso del Módulo de Comunicación Interna
+
+1. **Envío de Mensajes Internos**:
+   - Navega a la vista de Mensajes Internos.
+   - Haz clic en "Crear" para redactar un nuevo mensaje.
+   - Ingresa el asunto y el cuerpo del mensaje.
+   - Selecciona el autor del mensaje.
+   - Asigna los destinatarios y/o departamentos relevantes.
+   - Opcionalmente, relaciona anuncios con el mensaje si es necesario.
+   - Guarda el mensaje y envíalo.<br><br>
+
+2. **Creación de Anuncios Internos**:
+   - Dirígete a la vista de Anuncios Internos.
+   - Haz clic en "Crear" para redactar un nuevo anuncio.
+   - Completa los campos requeridos, incluyendo nombre, autor, título y cuerpo del anuncio.
+   - Asigna el departamento correspondiente al anuncio.
+   - Adjunta cualquier documento relevante si es necesario.
+   - Marca el anuncio como destacado si lo deseas.
+   - Establece la fecha de publicación del anuncio.
+   - Guarda el anuncio y publícalo.<br><br>
+
+3. **Visualización de Mensajes y Anuncios**:
+   - Accede a las vistas de Mensajes Internos y Anuncios Internos para ver la lista completa de mensajes y anuncios.
+   - Utiliza los filtros y búsquedas para encontrar mensajes o anuncios específicos según sea necesario.
+   - Haz clic en cualquier mensaje o anuncio para ver los detalles completos.<br><br>
+
+![Módulo de gestión de la comunicacion interna](screenshots/comunicacion_interna.png)
+
+Con este módulo, Esperanza Solidaria puede gestionar eficazmente su comunicación interna, garantizando que los mensajes y anuncios lleguen a los destinatarios adecuados en el momento oportuno.
+
 
 

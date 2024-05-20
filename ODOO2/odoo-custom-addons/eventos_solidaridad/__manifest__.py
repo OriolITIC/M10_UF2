@@ -21,7 +21,7 @@
     'version': '0.1',
 
     # cualquier módulo necesario para que este funcione correctamente
-    'depends': ['base', 'project'],
+    'depends': ['base', 'project', 'voluntarios_solidaridad'],
 
     # siempre cargado
     'data': [
