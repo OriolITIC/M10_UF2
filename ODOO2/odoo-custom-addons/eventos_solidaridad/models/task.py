@@ -7,7 +7,7 @@ class Task(models.Model):
     name = fields.Char(string='Nombre tarea', required=True)
     description = fields.Text(string='Descripción')
     deadline = fields.Datetime(string='Vencimiento')
-    responsible_id = fields.Many2one('res.users', string='Responsable')
+    responsible_id = fields.Many2one('voluntarios_solidaridad.volunteer', string='Responsable', required=True)
     event_id = fields.Many2one('eventos_solidaridad.event', string='Evento')
     state = fields.Selection([
         ('pending', 'Pendiente'),
