@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <menuitem name="EventosSolidaridad" id="eventos_solidaridad.menu_root"/>
+    <menuitem name="Eventos" id="eventos_solidaridad.menu_1" parent="eventos_solidaridad.menu_root"/>
+    <menuitem name="Participantes" id="eventos_solidaridad.menu_2" parent="eventos_solidaridad.menu_root"/>
+    <menuitem name="Tareas" id="eventos_solidaridad.menu_3" parent="eventos_solidaridad.menu_root"/>
+    <menuitem name="Encuestas" id="eventos_solidaridad.menu_4" parent="eventos_solidaridad.menu_root"/>
+    
+    <menuitem name="Ver eventos" id="eventos_solidaridad.menu_1_list" parent="eventos_solidaridad.menu_1"
+        action="eventos_solidaridad.events"/>
+    <menuitem name="Ver participantes" id="eventos_solidaridad.menu_2_list" parent="eventos_solidaridad.menu_2"
+        action="eventos_solidaridad.participants"/>
+    <menuitem name="Ver tareas" id="eventos_solidaridad.menu_3_list" parent="eventos_solidaridad.menu_3"
+        action="eventos_solidaridad.tasks"/>
+    <menuitem name="Ver encuestas" id="eventos_solidaridad.menu_4_list" parent="eventos_solidaridad.menu_4" 
+        action="eventos_solidaridad.surveys"/>
+  </data>
+</odoo>

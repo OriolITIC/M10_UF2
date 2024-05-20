@@ -1,0 +1,68 @@
+<odoo>
+  <data>
+    <record model="ir.actions.act_window" id="eventos_solidaridad.events">
+        <field name="name">Eventos Esperanza Solidarida</field>
+        <field name="res_model">eventos_solidaridad.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_event_form" model="ir.ui.view">
+      <field name="name">eventos_solidaridad.event.form</field>
+      <field name="model">eventos_solidaridad.event</field>
+      <field name="arch" type="xml">
+          <form string="Evento Esperanza Solidaria">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="description"/>
+                      <field name="date_start"/>
+                      <field name="date_end"/>
+                      <field name="location"/>
+                      <field name="budget"/>
+                      <field name="project_id"/>
+                      <field name="survey_id"/>
+                  </group>
+                  <notebook>
+                      <page string="Participantes">
+                          <field name="participant_ids" widget="many2many" options="{'create_edit': true}">
+                              <form string="Nuevo Participante">
+                                  <group>
+                                      <field name="name"/>
+                                      <field name="email"/>
+                                      <field name="phone"/>
+                                  </group>
+                              </form>
+                          </field>
+                      </page>
+                      <page string="Tareas">
+                        <field name="task_ids" widget="many2many_tags" options="{'create_edit': False}">
+                            <form string="Nueva Tarea">
+                                <group>
+                                    <field name="name"/>
+                                    <field name="deadline"/>
+                                    <field name="responsible_id"/>
+                                    <field name="state"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                  </notebook>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record id="view_event_tree" model="ir.ui.view">
+        <field name="name">eventos_solidaridad.event.tree</field>
+        <field name="model">eventos_solidaridad.event</field>
+        <field name="arch" type="xml">
+            <tree string="Eventos Esperanza Solidaria">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+  </data>
+</odoo>
