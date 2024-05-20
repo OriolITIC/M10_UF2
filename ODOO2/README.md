@@ -132,7 +132,7 @@ Este módulo personalizado está diseñado para ayudar a Esperanza Solidaria en 
    - Utiliza los filtros y búsquedas para encontrar mensajes o anuncios específicos según sea necesario.
    - Haz clic en cualquier mensaje o anuncio para ver los detalles completos.<br><br>
 
-![Módulo de gestión del impacto social para Esperanza Solidaria](screenshots/comunicacion_interna.png)
+![Módulo de gestión de la comunicacion interna](screenshots/comunicacion_interna.png)
 
 Con este módulo, Esperanza Solidaria puede gestionar eficazmente su comunicación interna, garantizando que los mensajes y anuncios lleguen a los destinatarios adecuados en el momento oportuno.
 
