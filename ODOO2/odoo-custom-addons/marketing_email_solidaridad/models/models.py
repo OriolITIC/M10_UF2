@@ -166,23 +166,66 @@ class Donante(models.Model):
     cantidad_dinero = fields.Float(string='Cantidad de Dinero')
     descripcion_donacion = fields.Text(string='Descripción de la Donación')
     uso_especifico = fields.Char(string='Uso Específico')
+    project_id = fields.Many2one('project.project', string='Proyecto')
 
 class Expense(models.Model):
- _name = 'account.expense'
- _description = 'Gasto'
-
- date = fields.Date(string='Fecha del Gasto', default=fields.Date.today, required=True)
- amount = fields.Float(string='Monto', required=True)
- description = fields.Text(string='Descripción')
- project_id = fields.Many2one('project.project', string='Proyecto')
- currency_id = fields.Many2one('res.currency', string='Moneda', required=True)
+    _name = 'account.expense'
+    _description = 'Gasto'
 
 
-class Project(models.Model):
- _name = 'project.project'
- _description = 'Proyecto'
+    date = fields.Date(string='Fecha del Gasto', default=fields.Date.today, required=True)
+    amount = fields.Float(string='Monto', required=True)
+    description = fields.Text(string='Descripción')
+    project_id = fields.Many2one('project.project', string='Proyecto')
+    currency_id = fields.Many2one('res.currency', string='Moneda', required=True)
 
- name = fields.Char(string='Nombre del Proyecto', required=True)
- start_date = fields.Date(string='Fecha de Inicio', required=True)
- end_date = fields.Date(string='Fecha de Fin')
- budget = fields.Float(string='Presupuesto')
+
+
+class Proyecto(models.Model):
+    _name = 'project.project'
+    _description = 'Proyecto'
+
+    name = fields.Char(string='Nombre', required=True)
+    fecha_inicio = fields.Date(string='Fecha de inicio', required=True)
+    fecha_final = fields.Date(string='Fecha final', required=True)
+    descripcion = fields.Text(string='Descripción')
+
+class AccountIncome(models.Model):
+    _name = 'account.income'
+    _description = 'Registro de Ingresos'
+
+    date = fields.Date(string='Fecha del Ingreso', default=fields.Date.today, required=True)
+    amount = fields.Float(string='Monto del Ingreso', required=True)
+    description = fields.Text(string='Descripción')
+    project_id = fields.Many2one('project.project', string='Proyecto Asignado')
+    tipo_donacion = fields.Selection([
+        ('donacion', 'Donación'),
+        ('otros', 'Otros')
+    ], string='Tipo de Donación')
+    cantidad_dinero = fields.Float(string='Cantidad de Dinero')
+
+   
+class Volunteer(models.Model):
+    _name = 'volunteer.volunteer'
+    _description = 'Voluntario'
+
+    name = fields.Char(string='Nombre', required=True)
+    email = fields.Char(string='Email')
+    phone = fields.Char(string='Teléfono')
+    address = fields.Char(string='Dirección')
+    campaign_ids = fields.Many2many('campaign.management.campaign', string='Campañas')
+
+
+
+
+class Campaign(models.Model):
+    _name = 'campaign.management.campaign'
+    _description = 'Campaña'
+
+    name = fields.Char(string='Nombre', required=True)
+    description = fields.Text(string='Descripción')
+    start_date = fields.Date(string='Fecha de Inicio')
+    end_date = fields.Date(string='Fecha de Finalización')
+    volunteers = fields.Many2many('volunteer.volunteer', string='Voluntarios')
+
+
