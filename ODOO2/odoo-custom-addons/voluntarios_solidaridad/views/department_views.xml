@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="voluntarios_solidaridad.departments">
+            <field name="name">Departamentos Esperanza Solidarida</field>
+            <field name="res_model">voluntarios_solidaridad.department</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="department_form_view" model="ir.ui.view">
+            <field name="name">voluntarios_solidaridad.department.form</field>
+            <field name="model">voluntarios_solidaridad.department</field>
+            <field name="arch" type="xml">
+                <form string="Departamento">
+                    <sheet>
+                        <group>
+                            <field name="name" string="Nombre"/>
+                            <field name="code" string="Codigo"/>
+                            <field name="phone" string="Telefono"/>
+                        </group>
+                        <group string="Voluntarios">
+                            <field name="volunteer_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

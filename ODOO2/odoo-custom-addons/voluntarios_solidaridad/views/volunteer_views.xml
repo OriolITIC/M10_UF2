@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="voluntarios_solidaridad.volunteers">
+            <field name="name">Voluntarios Esperanza Solidarida</field>
+            <field name="res_model">voluntarios_solidaridad.volunteer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="volunteer_form_view" model="ir.ui.view">
+            <field name="name">voluntarios_solidaridad.volunteer.form</field>
+            <field name="model">voluntarios_solidaridad.volunteer</field>
+            <field name="arch" type="xml">
+                <form string="Voluntario">
+                    <sheet>
+                        <group>
+                            <field name="photo" widget='image'/>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="city"/>
+                            <field name="department_id"/>
+                        </group>
+                        <group string="Actividades">
+                            <field name="activities_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
