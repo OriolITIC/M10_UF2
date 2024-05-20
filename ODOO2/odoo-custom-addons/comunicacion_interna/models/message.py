@@ -8,15 +8,19 @@ class Message(models.Model):
     body = fields.Text(string='Cuerpo', required=True)
     author_id = fields.Many2one('voluntarios_solidaridad.volunteer', string='Autor', required=True)
     recipient_ids = fields.Many2many('voluntarios_solidaridad.volunteer', 
-                                 'ci_message_recipient_rel', 
-                                 'message_id', 
-                                 'volunteer_id', 
-                                 string='Destinatarios')
-
+                                     'ci_message_recipient_rel', 
+                                     'message_id', 
+                                     'volunteer_id', 
+                                     string='Destinatarios')
     department_ids = fields.Many2many('voluntarios_solidaridad.department', 
-                                   'ci_message_department_rel',  
-                                   'message_id', 
-                                   'department_id', 
-                                   string='Departamentos')
+                                      'ci_message_department_rel',  
+                                      'message_id', 
+                                      'department_id', 
+                                      string='Departamentos')
+    advertisement_ids = fields.Many2many('comunicacion_interna.advertisement', 
+                                         'ci_message_advertisement_rel', 
+                                         'message_id', 
+                                         'advertisement_id', 
+                                         string='Anuncios')
 
 
