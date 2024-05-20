@@ -2,4 +2,3 @@
 
 from . import models
 
-from . import email_marketing_empresa

@@ -36,3 +36,18 @@ class EmailEnviado(models.Model):
 
 
     destinatario_emails = fields.Char(string='Destinatarios Emails', compute='_compute_destinatario_emails')
+class Donante(models.Model):
+    _name = 'accounting.donante'
+    _description = 'Registro de Donantes'
+
+    name = fields.Char(string='Nombre del Donante', default='Anónimo')
+    fecha_donacion = fields.Date(string='Fecha de la Donación', required=True, default=fields.Date.today)
+    tipo_donacion = fields.Selection([
+        ('dinero', 'Dinero'),
+        ('ropa', 'Ropa'),
+        ('comida', 'Comida'),
+        ('otros', 'Otros')
+    ], string='Tipo de Donación', required=True)
+    cantidad_dinero = fields.Float(string='Cantidad de Dinero')
+    descripcion_donacion = fields.Text(string='Descripción de la Donación')
+    uso_especifico = fields.Char(string='Uso Específico')
