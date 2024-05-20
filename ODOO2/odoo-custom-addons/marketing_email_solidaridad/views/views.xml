@@ -1,72 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    
- <!-- Vista tree para accounting.donante -->
-    <record id="view_donante_tree" model="ir.ui.view">
-        <field name="name">accounting.donante.tree</field>
-        <field name="model">accounting.donante</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="fecha_donacion"/>
-                <field name="tipo_donacion"/>
-                <field name="cantidad_dinero"/>
-                <field name="uso_especifico"/>
-            </tree>
-        </field>
-    </record>
-
-    <!-- Vista form para accounting.donante -->
-    <record id="view_donante_form" model="ir.ui.view">
-        <field name="name">accounting.donante.form</field>
-        <field name="model">accounting.donante</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="fecha_donacion"/>
-                    </group>
-                    <group>
-                        <field name="tipo_donacion"/>
-                        <field name="cantidad_dinero" attrs="{'invisible': [('tipo_donacion', '!=', 'dinero')]}"/>
-                        <field name="descripcion_donacion"/>
-                        <field name="uso_especifico"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+  
+<!-- Vista tree para accounting.donante -->
+   <record id="view_donante_tree" model="ir.ui.view">
+       <field name="name">accounting.donante.tree</field>
+       <field name="model">accounting.donante</field>
+       <field name="arch" type="xml">
+           <tree>
+               <field name="name"/>
+               <field name="fecha_donacion"/>
+               <field name="tipo_donacion"/>
+               <field name="cantidad_dinero"/>
+               <field name="uso_especifico"/>
+           </tree>
+       </field>
+   </record>
 
 
-    <!-- Acciones y menús -->
- 
+   <!-- Vista form para accounting.donante -->
+   <record id="view_donante_form" model="ir.ui.view">
+       <field name="name">accounting.donante.form</field>
+       <field name="model">accounting.donante</field>
+       <field name="arch" type="xml">
+           <form>
+               <sheet>
+                   <group>
+                       <field name="name"/>
+                       <field name="fecha_donacion"/>
+                   </group>
+                   <group>
+                       <field name="tipo_donacion"/>
+                       <field name="cantidad_dinero" attrs="{'invisible': [('tipo_donacion', '!=', 'dinero')]}"/>
+                       <field name="descripcion_donacion"/>
+                       <field name="uso_especifico"/>
+                   </group>
+               </sheet>
+           </form>
+       </field>
+   </record>
+
+
+
+
+   <!-- Acciones y menús -->
 <!-- Acción para abrir el formulario de creación de donantes -->
-    <record id="action_create_donante" model="ir.actions.act_window">
-        <field name="name">Crear Donante</field>
-        <field name="res_model">accounting.donante</field>
-        <field name="view_mode">form</field>
-        <field name="view_id" ref="view_donante_form"/>
-        <field name="target">current</field>
-    </record>
-
-    <!-- Acción para abrir la lista de donantes -->
-    <record id="action_donantes" model="ir.actions.act_window">
-        <field name="name">Lista de Donantes</field>
-        <field name="res_model">accounting.donante</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+   <record id="action_create_donante" model="ir.actions.act_window">
+       <field name="name">Crear Donante</field>
+       <field name="res_model">accounting.donante</field>
+       <field name="view_mode">form</field>
+       <field name="view_id" ref="view_donante_form"/>
+       <field name="target">current</field>
+   </record>
 
 
+   <!-- Acción para abrir la lista de donantes -->
+   <record id="action_donantes" model="ir.actions.act_window">
+       <field name="name">Lista de Donantes</field>
+       <field name="res_model">accounting.donante</field>
+       <field name="view_mode">tree,form</field>
+   </record>
 
 
-    <!-- Menú principal -->
-    <menuitem id="menu_email_marketing" name="Contabilidad" />
 
 
-    <!-- Submenús para Contactos -->
-    <menuitem id="menu_empresas" name="Donantes" parent="menu_email_marketing" action="action_donantes"/>
-    <menuitem id="menu_ver_empresas" name="Ver donantes" parent="menu_empresas" action="action_donantes"/>
+
+
+
+
+   <!-- Menú principal -->
+   <menuitem id="menu_email_marketing" name="Contabilidad" />
+
+
+
+
+   <!-- Submenús para Contactos -->
+   <menuitem id="menu_empresas" name="Donantes" parent="menu_email_marketing" action="action_donantes"/>
+   <menuitem id="menu_ver_empresas" name="Ver donantes" parent="menu_empresas" action="action_donantes"/>
+
+
+
 
 
 
