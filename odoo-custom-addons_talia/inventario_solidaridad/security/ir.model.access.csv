@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_esperanza_unida_producto,access_esperanza_unida_producto,model_esperanza_unida_producto,base.group_user,1,1,1,1
+access_esperanza_unida_categoria,access_esperanza_unida_categoria,model_esperanza_unida_categoria,base.group_user,1,1,1,1
+access_esperanza_unida_almacen,access_esperanza_unida_almacen,model_esperanza_unida_almacen,base.group_user,1,1,1,1

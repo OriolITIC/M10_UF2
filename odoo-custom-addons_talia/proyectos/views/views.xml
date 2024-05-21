@@ -1,0 +1,269 @@
+<odoo>
+    <data>
+        <!-- Vista tree para proyectos -->
+        <record id="view_proyecto_tree" model="ir.ui.view">
+            <field name="name">proyectos.proyecto.tree</field>
+            <field name="model">proyectos.proyecto</field>
+            <field name="arch" type="xml">
+                <tree string="Proyectos">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="state"/>
+                    <field name="responsable_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista form para proyectos -->
+        <record id="view_proyecto_form" model="ir.ui.view">
+            <field name="name">proyectos.proyecto.form</field>
+            <field name="model">proyectos.proyecto</field>
+            <field name="arch" type="xml">
+                <form string="Proyecto">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="state"/>
+                            <field name="responsable_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Tareas">
+                                <field name="tarea_ids">
+                                    <tree string="Tareas">
+                                        <field name="name"/>
+                                        <field name="fecha_inicio"/>
+                                        <field name="fecha_fin"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Notas">
+                                <field name="nota_ids">
+                                    <tree string="Notas">
+                                        <field name="name"/>
+                                        <field name="contenido"/>
+                                    </tree>
+                                    <form string="Nota">
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="contenido"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Recursos">
+                                <field name="recurso_ids">
+                                    <tree string="Recursos">
+                                        <field name="name"/>
+                                        <field name="cantidad"/>
+                                    </tree>
+                                    <form string="Recurso">
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="cantidad"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Presupuestos">
+                                <field name="presupuesto_ids">
+                                    <tree string="Presupuestos">
+                                        <field name="name"/>
+                                        <field name="monto_estimado"/>
+                                        <field name="monto_real"/>
+                                    </tree>
+                                    <form string="Presupuesto">
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="monto_estimado"/>
+                                            <field name="monto_real"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para proyectos -->
+        <record id="action_proyectos" model="ir.actions.act_window">
+            <field name="name">Proyectos</field>
+            <field name="res_model">proyectos.proyecto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para proyectos -->
+        <menuitem id="menu_proyectos_root" name="Proyectos"/>
+        <menuitem id="menu_proyectos" parent="menu_proyectos_root" name="Proyectos" action="action_proyectos"/>
+
+        <!-- Vista de formulario para Tareas -->
+        <record id="view_tarea_form" model="ir.ui.view">
+            <field name="name">proyectos.tarea.form</field>
+            <field name="model">proyectos.tarea</field>
+            <field name="arch" type="xml">
+                <form string="Tarea">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
+                            <field name="proyecto_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de lista para Tareas -->
+        <record id="view_tarea_tree" model="ir.ui.view">
+            <field name="name">proyectos.tarea.tree</field>
+            <field name="model">proyectos.tarea</field>
+            <field name="arch" type="xml">
+                <tree string="Tareas">
+                    <field name="name"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="proyecto_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acciones para Tareas -->
+        <record id="action_tarea" model="ir.actions.act_window">
+            <field name="name">Tareas</field>
+            <field name="res_model">proyectos.tarea</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para Tareas -->
+        <menuitem id="menu_tarea" name="Tareas" parent="menu_proyectos" action="action_tarea"/>
+
+        <!-- Vista de formulario para Notas -->
+        <record id="view_nota_form" model="ir.ui.view">
+            <field name="name">proyectos.nota.form</field>
+            <field name="model">proyectos.nota</field>
+            <field name="arch" type="xml">
+                <form string="Nota">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="contenido"/>
+                            <field name="proyecto_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de lista para Notas -->
+        <record id="view_nota_tree" model="ir.ui.view">
+            <field name="name">proyectos.nota.tree</field>
+            <field name="model">proyectos.nota</field>
+            <field name="arch" type="xml">
+                <tree string="Notas">
+                    <field name="name"/>
+                    <field name="contenido"/>
+                    <field name="proyecto_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acciones para Notas -->
+        <record id="action_nota" model="ir.actions.act_window">
+            <field name="name">Notas</field>
+            <field name="res_model">proyectos.nota</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para Notas -->
+        <menuitem id="menu_nota" name="Notas" parent="menu_proyectos" action="action_nota"/>
+
+        <!-- Vista de formulario para Recursos -->
+        <record id="view_recurso_form" model="ir.ui.view">
+            <field name="name">proyectos.recurso.form</field>
+            <field name="model">proyectos.recurso</field>
+            <field name="arch" type="xml">
+                <form string="Recurso">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="cantidad"/>
+                            <field name="proyecto_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de lista para Recursos -->
+        <record id="view_recurso_tree" model="ir.ui.view">
+            <field name="name">proyectos.recurso.tree</field>
+            <field name="model">proyectos.recurso</field>
+            <field name="arch" type="xml">
+                <tree string="Recursos">
+                    <field name="name"/>
+                    <field name="cantidad"/>
+                    <field name="proyecto_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acciones para Recursos -->
+        <record id="action_recurso" model="ir.actions.act_window">
+            <field name="name">Recursos</field>
+            <field name="res_model">proyectos.recurso</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para Recursos -->
+        <menuitem id="menu_recurso" name="Recursos" parent="menu_proyectos" action="action_recurso"/>
+
+        <!-- Vista de formulario para Presupuestos -->
+        <record id="view_presupuesto_form" model="ir.ui.view">
+            <field name="name">proyectos.presupuesto.form</field>
+            <field name="model">proyectos.presupuesto</field>
+            <field name="arch" type="xml">
+                <form string="Presupuesto">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="monto_estimado"/>
+                            <field name="monto_real"/>
+                            <field name="proyecto_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de lista para Presupuestos -->
+        <record id="view_presupuesto_tree" model="ir.ui.view">
+            <field name="name">proyectos.presupuesto.tree</field>
+            <field name="model">proyectos.presupuesto</field>
+            <field name="arch" type="xml">
+                <tree string="Presupuestos">
+                    <field name="name"/>
+                    <field name="monto_estimado"/>
+                    <field name="monto_real"/>
+                    <field name="proyecto_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acciones para Presupuestos -->
+        <record id="action_presupuesto" model="ir.actions.act_window">
+            <field name="name">Presupuestos</field>
+            <field name="res_model">proyectos.presupuesto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para Presupuestos -->
+        <menuitem id="menu_presupuesto" name="Presupuestos" parent="menu_proyectos" action="action_presupuesto"/>
+    </data>
+</odoo>

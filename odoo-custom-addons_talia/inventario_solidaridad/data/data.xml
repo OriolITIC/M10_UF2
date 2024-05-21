@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <!-- Crear categorías predefinidas -->
+        <record id="categoria_ropa" model="esperanza_unida.categoria">
+            <field name="name">Ropa</field>
+            <field name="description">Categoría para productos de ropa.</field>
+        </record>
+
+        <record id="categoria_alimentos" model="esperanza_unida.categoria">
+            <field name="name">Alimentos</field>
+            <field name="description">Categoría para productos de alimentos.</field>
+        </record>
+
+        <record id="categoria_albergue" model="esperanza_unida.categoria">
+            <field name="name">Albergue</field>
+            <field name="description">Categoría para productos de albergue.</field>
+        </record>
+
+        <!-- Crear almacén predefinido -->
+        <record id="almacen_sagrada_familia" model="esperanza_unida.almacen">
+            <field name="name">Almacén Sagrada Familia</field>
+            <field name="location">Sagrada Familia</field>
+        </record>
+    </data>
+</odoo>

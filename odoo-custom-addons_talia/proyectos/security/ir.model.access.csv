@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_proyecto_user,access_proyecto_user,model_proyectos_proyecto,base.group_user,1,1,1,1
+access_proyectos_tarea,access_proyectos_tarea,model_proyectos_tarea,base.group_user,1,1,1,1
+access_proyectos_nota,access_proyectos_nota,model_proyectos_nota,base.group_user,1,1,1,1
+access_proyectos_recurso,access_proyectos_recurso,model_proyectos_recurso,base.group_user,1,1,1,1
+access_proyectos_presupuesto,access_proyectos_presupuesto,model_proyectos_presupuesto,base.group_user,1,1,1,1

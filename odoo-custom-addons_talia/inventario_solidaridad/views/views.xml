@@ -1,0 +1,153 @@
+<odoo>
+    <data>
+        <!-- Acción para productos -->
+        <record model="ir.actions.act_window" id="action_esperanza_unida_productos">
+            <field name="name">Productos Esperanza Unida</field>
+            <field name="res_model">esperanza_unida.producto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para categorías -->
+        <record model="ir.actions.act_window" id="action_esperanza_unida_categorias">
+            <field name="name">Categorías Esperanza Unida</field>
+            <field name="res_model">esperanza_unida.categoria</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para almacenes -->
+        <record model="ir.actions.act_window" id="action_esperanza_unida_almacenes">
+            <field name="name">Almacenes Esperanza Unida</field>
+            <field name="res_model">esperanza_unida.almacen</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para productos próximos a caducar -->
+        <record model="ir.actions.act_window" id="action_productos_proximos_caducar">
+            <field name="name">Productos Próximos a Caducar</field>
+            <field name="res_model">esperanza_unida.producto</field>
+            <field name="domain">[('fecha_caducidad', '!=', False), ('fecha_caducidad', '&lt;=', (context_today() + relativedelta(days=60)).strftime('%Y-%m-%d'))]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Vista tree para productos -->
+        <record id="view_esperanza_unida_productos_tree" model="ir.ui.view">
+            <field name="name">esperanza_unida.producto.tree</field>
+            <field name="model">esperanza_unida.producto</field>
+            <field name="arch" type="xml">
+                <tree string="Producto">
+                    <field name="name"/>
+                    <field name="cantidad"/>
+                    <field name="categoria_id"/>
+                    <field name="almacen_id"/>
+                    <field name="fecha_caducidad"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista form para productos -->
+        <record id="view_esperanza_unida_productos_form" model="ir.ui.view">
+            <field name="name">esperanza_unida.producto.form</field>
+            <field name="model">esperanza_unida.producto</field>
+            <field name="arch" type="xml">
+                <form string="Producto">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="cantidad"/>
+                            <field name="categoria_id"/>
+                            <field name="almacen_id"/>
+                            <field name="categoria_name" invisible="1"/>
+                            <field name="fecha_caducidad" attrs="{'invisible': [('categoria_name', '!=', 'Alimentos')]}"/>
+                            <field name="talla" attrs="{'invisible': [('categoria_name', '!=', 'Ropa')]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista tree para categorías -->
+        <record id="view_esperanza_unida_categorias_tree" model="ir.ui.view">
+            <field name="name">esperanza_unida.categoria.tree</field>
+            <field name="model">esperanza_unida.categoria</field>
+            <field name="arch" type="xml">
+                <tree string="Categoría">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista form para categorías -->
+        <record id="view_esperanza_unida_categorias_form" model="ir.ui.view">
+            <field name="name">esperanza_unida.categoria.form</field>
+            <field name="model">esperanza_unida.categoria</field>
+            <field name="arch" type="xml">
+                <form string="Categoría">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page string="Productos">
+                                <field name="product_ids">
+                                    <tree string="Productos en esta Categoría">
+                                        <field name="name"/>
+                                        <field name="cantidad"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Próximos a Caducar">
+                                <field name="product_ids" domain="[('fecha_caducidad', '&lt;=', (context_today() + relativedelta(months=2)).strftime('%Y-%m-%d'))]">
+                                    <tree string="Próximos a Caducar">
+                                        <field name="name"/>
+                                        <field name="cantidad"/>
+                                        <field name="fecha_caducidad"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista tree para almacenes -->
+        <record id="view_esperanza_unida_almacenes_tree" model="ir.ui.view">
+            <field name="name">esperanza_unida.almacen.tree</field>
+            <field name="model">esperanza_unida.almacen</field>
+            <field name="arch" type="xml">
+                <tree string="Almacén">
+                    <field name="name"/>
+                    <field name="location"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista form para almacenes -->
+        <record id="view_esperanza_unida_almacenes_form" model="ir.ui.view">
+            <field name="name">esperanza_unida.almacen.form</field>
+            <field name="model">esperanza_unida.almacen</field>
+            <field name="arch" type="xml">
+                <form string="Almacén">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="location"/>
+                        </group>
+                        <group string="Productos">
+                            <field name="productos_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Menú -->
+        <menuitem name="Inventario Esperanza Unida" id="menu_esperanza_unida_root"/>
+
+        <menuitem name="Productos" id="menu_esperanza_unida_productos" parent="menu_esperanza_unida_root" action="action_esperanza_unida_productos"/>
+        <menuitem name="Categorías" id="menu_esperanza_unida_categorias" parent="menu_esperanza_unida_root" action="action_esperanza_unida_categorias"/>
+        <menuitem name="Almacenes" id="menu_esperanza_unida_almacenes" parent="menu_esperanza_unida_root" action="action_esperanza_unida_almacenes"/>
+        <menuitem name="Próximos a Caducar" id="menu_productos_proximos_caducar" parent="menu_esperanza_unida_root" action="action_productos_proximos_caducar"/>
+    </data>
+</odoo>
